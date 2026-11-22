@@ -1,0 +1,9 @@
+---
+# Joran · search index, loaded by the sidebar search and the terminal only when needed.
+permalink: /search.json
+layout: false
+eleventyExcludeFromCollections: true
+---
+{%- set items = [] -%}
+{%- for p in collections.posts %}{% if not p.data.draft %}{% set items = (items.push({ t: p.data.title, u: p.url, d: (p.date | isoDate), l: p.data.lang, y: p.data.type, g: [].concat(p.data.tags or []), e: p.data.description or "", s: p.fileSlug, b: ((p.content | plainText(site.searchMaxChars)) if site.searchFullText else "") }), items) %}{% endif %}{% endfor -%}
+{{ items | json | safe }}

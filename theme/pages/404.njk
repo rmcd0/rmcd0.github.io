@@ -1,0 +1,16 @@
+---
+permalink: /404.html
+titleKey: notFound.title
+noindex: true
+sitemap: false
+eleventyExcludeFromCollections: true
+layout: base.njk
+---
+<div class="not-found">
+<pre class="code-block" aria-hidden="true">GET <span data-path>/the-page-you-were-looking-for</span>
+  404 Not Found
+  the wind took it somewhere else</pre>
+<h1>{{ "notFound.title" | t }}</h1>
+<p>{{ "notFound.text" | t }}</p>
+<p class="actions"><a class="chip" href="/">{{ "notFound.home" | t }}</a> <a class="chip" href="/journal/">{{ "notFound.journal" | t }}</a>{% if site.features.terminal %} <button class="chip" type="button" data-terminal hidden>{{ "notFound.terminal" | t }}</button>{% endif %}</p>
+</div>

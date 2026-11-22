@@ -1,0 +1,8 @@
+{#- Joran · the breadcrumb bar at the top of the reading column. Set `crumb:` in front matter to write your own. -#}
+<nav class="crumb" aria-label="{{ 'a11y.breadcrumb' | t }}">
+  {%- if crumb %}{{ crumb }}
+  {%- elif isPost %}<a href="{{ '/journal/' | localeUrl }}">{{ "nav.journal" | t }}</a> / <span aria-current="page">{{ title }}</span>
+  {%- elif tg %}<a href="{{ tg.prefix }}/tags/">{{ "tags.title" | t }}</a> / <span aria-current="page">{{ tg.name }}</span>
+  {%- else %}<span aria-current="page">{{ title or (titleKey | t if titleKey) or site.title }}</span>
+  {%- endif -%}
+</nav>

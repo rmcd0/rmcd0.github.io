@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "html-validate:recommended"
+  ],
+  "rules": {
+    "no-inline-style": "off",
+    "no-trailing-whitespace": "off",
+    "void-style": "off",
+    "attribute-boolean-style": "off",
+    "long-title": "off",
+    "no-redundant-role": "off",
+    "prefer-native-element": "off",
+    "heading-level": [
+      "error",
+      {
+        "allowMultipleH1": false,
+        "sectioningRoots": [
+          "dialog",
+          "[role=\"dialog\"]"
+        ]
+      }
+    ],
+    "element-required-attributes": "error",
+    "no-raw-characters": "off",
+    "text-content": "off",
+    "doctype-style": "off",
+    "attribute-empty-style": "off"
+  }
+}

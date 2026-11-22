@@ -1,0 +1,46 @@
+{#- Joran · journal list with filters. `posts` = the list to show. Filtering runs in assets/js/filters.js; without JavaScript the full list shows. -#}
+{%- macro postlist(posts, site) -%}
+{%- set langs = posts | languagesOf %}
+<div class="filters" data-filters hidden>
+  {%- if site.types.length > 1 %}
+  <div class="filter-row" role="group" aria-label="{{ 'filters.type' | t }}"><span class="filter-label" aria-hidden="true">{{ "filters.type" | t }}</span>
+    <button class="chip" type="button" data-ftype="all" aria-pressed="true">{{ "filters.all" | t }} <span class="n"></span></button>
+    {%- for ty in site.types %}
+    <button class="chip" type="button" data-ftype="{{ ty.key }}" aria-pressed="false" data-empty-title="{{ (ty.empty | l10n) or ('filters.nothing' | t) }}">{{ ty.key | typeLabel(true) }} <span class="n"></span></button>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+  {%- if langs.length > 1 %}
+  <div class="filter-row" role="group" aria-label="{{ 'filters.language' | t }}"><span class="filter-label" aria-hidden="true">{{ "filters.language" | t }}</span>
+    <button class="chip" type="button" data-flang="all" aria-pressed="true">{{ "filters.all" | t }} <span class="n"></span></button>
+    {%- for l in langs %}
+    <button class="chip" type="button" data-flang="{{ l }}" aria-pressed="false" title="{{ l | languageName }}">{{ l | upper }} <span class="n"></span></button>
+    {%- endfor %}
+  </div>
+  {%- endif %}
+  <div class="filter-row">
+    <div class="view" role="group" aria-label="{{ 'filters.display' | t }}"><button type="button" data-group="1" aria-pressed="true">{{ "filters.byYear" | t }}</button><button type="button" data-group="0" aria-pressed="false">{{ "filters.list" | t }}</button></div>
+    <span class="spacer"></span>
+    <nav class="years" data-years aria-label="{{ 'filters.jumpTo' | t }}"></nav>
+  </div>
+  <p class="visually-hidden" aria-live="polite" data-filter-status data-template="{{ 'filters.status' | t }}"></p>
+</div>
+<div class="postlist" data-postlist>
+{%- for g in posts | byYear %}
+  <section class="year-group" data-year="{{ g.year }}" aria-labelledby="y{{ g.year }}">
+    <h2 class="year" id="y{{ g.year }}">{{ g.year }} <span data-count>{{ g.posts.length }} {{ ("post.one" if g.posts.length == 1 else "post.many") | t }}</span></h2>
+    <ul class="list" role="list">
+    {%- for p in g.posts %}
+      <li data-type="{{ p.data.type }}" data-lang="{{ p.data.lang }}" data-text="{{ (p.data.title + ' ' + (p.data.description or '') + ' ' + ([].concat(p.data.tags or []) | join(' '))) | lower }}">
+        <time datetime="{{ p.date | isoDate }}"><span class="d-short">{{ p.date | dateFmt("short") }}</span><span class="d-long">{{ p.date | isoDate }}</span></time>
+        <div><a href="{{ p.url }}"{% if p.data.lang != uiLang %} hreflang="{{ p.data.lang }}"{% endif %}>{{ p.data.title }}</a>{% if p.data.draft %} <span class="draft-flag">{{ "post.draft" | t }}</span>{% endif %}<small><span class="lang-badge" data-lang="{{ p.data.lang }}">{{ p.data.lang | upper }}</span>{% if site.types.length > 1 %}<span class="type-badge">{{ p.data.type | typeLabel }}</span>{% endif %}{{ p.data.description }}</small></div>
+      </li>
+    {%- endfor %}
+    </ul>
+  </section>
+{%- else %}
+  <p class="empty-state">{{ "filters.noPosts" | t }}</p>
+{%- endfor %}
+</div>
+<p class="empty" data-empty hidden>{{ "filters.empty" | t }}</p>
+{%- endmacro -%}

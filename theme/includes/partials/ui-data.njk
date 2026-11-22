@@ -1,0 +1,15 @@
+{#- Joran · settings read by the scripts (assets/js/main.js). No personal data beyond what the page already shows. -#}
+<script id="joran-ui" type="application/json">{{ {
+  t: (uiLang | i18nDict),
+  lang: uiLang,
+  locale: site.locales[uiLang] or uiLang,
+  features: site.features,
+  base: ("/" | url),
+  prefix: uiLang | langPrefix,
+  title: site.title,
+  v: ("/assets/joran/js/main.js" | asset | replace("/assets/joran/js/main.js?v=", "")),
+  posts: collections.posts.length,
+  since: ((collections.posts | last).date | year) if collections.posts.length else "",
+  analytics: site.stats.on,
+  email: site.email if site.features.consoleMessage else null
+} | json | safe }}</script>

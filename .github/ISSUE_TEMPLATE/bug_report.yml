@@ -1,0 +1,22 @@
+name: Bug report
+description: Something does not work as the documentation says.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time! Please check the [troubleshooting page](../blob/main/docs/troubleshooting.md) first.
+  - type: textarea
+    id: what
+    attributes: { label: What happened?, description: "And what did you expect instead?" }
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes: { label: Steps to reproduce, placeholder: "1. Set ... in site.config.js\n2. Run npm start\n3. Open ..." }
+    validations: { required: true }
+  - type: textarea
+    id: output
+    attributes: { label: Build output or browser console, render: text }
+  - type: input
+    id: versions
+    attributes: { label: Versions, placeholder: "Joran 1.0.0 · Node 22.x · Chrome 142 / macOS" }
+    validations: { required: true }

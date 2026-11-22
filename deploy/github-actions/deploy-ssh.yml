@@ -1,0 +1,48 @@
+# Joran · deploy to your own server over SSH (rsync). Copy to .github/workflows/deploy-ssh.yml
+# and remove or disable deploy.yml if you no longer use GitHub Pages.
+#
+# Repository Settings → Secrets and variables → Actions:
+#   secrets   DEPLOY_KEY   private SSH key (the public key goes in ~/.ssh/authorized_keys on the server)
+#             DEPLOY_HOST  e.g. example.com
+#             DEPLOY_USER  e.g. deploy
+#   variables DEPLOY_PATH  e.g. /var/www/example.com/   (trailing slash matters)
+#             SITE_URL     e.g. https://example.com
+name: Deploy over SSH
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-ssh
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+      - run: npm run check:links
+      - name: Upload with rsync
+        env:
+          KEY: ${{ secrets.DEPLOY_KEY }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER: ${{ secrets.DEPLOY_USER }}
+          TARGET: ${{ vars.DEPLOY_PATH }}
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_deploy
+          printf '%s\n' "$KEY" > ~/.ssh/id_deploy
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts
+          rsync -az --delete -e "ssh -i ~/.ssh/id_deploy" _site/ "$USER@$HOST:$TARGET"

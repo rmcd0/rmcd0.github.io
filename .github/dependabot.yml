@@ -1,0 +1,14 @@
+# Opens pull requests when dependencies or GitHub Actions have updates. Grouped to keep the noise low.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: monthly }
+    groups:
+      eleventy: { patterns: ["@11ty/*"] }
+      tooling: { patterns: ["*"], exclude-patterns: ["@11ty/*"] }
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: monthly }
+    groups:
+      actions: { patterns: ["*"] }

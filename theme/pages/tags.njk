@@ -1,0 +1,21 @@
+---
+pagination:
+  data: uiLanguages
+  size: 1
+  alias: L
+permalink: "{{ L.prefix }}/tags/"
+titleKey: tags.title
+eleventyComputed:
+  pageLang: "{{ L.lang }}"
+layout: base.njk
+---
+<h1>{{ "tags.title" | t }}</h1>
+{%- if collections.tagList.length %}
+<ul class="tag-cloud" role="list">
+{%- for tg in collections.tagList %}
+  <li><a href="{{ L.prefix }}/tags/{{ tg.slug }}/" style="--tc: var(--tag-{{ (loop.index0 % 4) + 1 }})">{{ tg.name }} <span>{{ tg.n }}</span></a></li>
+{%- endfor %}
+</ul>
+{%- else %}
+<p class="empty-state">{{ "tags.none" | t }}</p>
+{%- endif %}

@@ -1,0 +1,51 @@
+{
+  "a11y": {"skip": "Skip to content", "mainNav": "Main", "menu": "Menu", "close": "Close", "languages": "Languages", "breadcrumb": "Breadcrumb"},
+  "nav": {"home": "Home", "intro": "Intro", "about": "About", "journal": "Journal", "projects": "Projects", "tags": "Tags", "now": "Now", "uses": "Uses", "colophon": "Colophon", "changelog": "Changelog", "contact": "Contact"},
+  "types": {"post": ["Post", "Posts"],"project": ["Project", "Projects"],"note": ["Note", "Notes"],"talk": ["Talk", "Talks"],"link": ["Link", "Links"],"photo": ["Photo", "Photos"],"politics": ["Politics", "Politics"]},
+  "sidebar": {"recent": "Recent", "search": "Search", "searchLabel": "Search posts", "noResults": "No match. Try another word.", "results": "{n} result(s)", "terminal": "Terminal (press ~ or §)", "terminalLabel": "Open the terminal"},
+  "theme": {"label": "Theme", "light": "Light theme", "dark": "Dark theme", "rain": "Red pill or blue pill?", "rainActive": "Back to the real world? Pick ☼ or ☾", "rainLabel": "Mystery theme"},
+  "filters": {"type": "Type", "language": "Language", "all": "All", "nothing": "Nothing here yet", "display": "Display", "byYear": "By year", "list": "List", "jumpTo": "Jump to year", "empty": "Nothing matches these filters. Try “All”.", "noPosts": "No posts yet. Create one with  npm run new  (see docs/writing.md).", "status": "{n} post(s) shown"},
+  "post": {"minRead": "{n} min read", "updated": "updated", "alsoOn": "Also published on {site} ↗", "one": "post", "many": "posts", "draft": "Draft", "translations": "Also in:", "permalink": "Permalink", "morePosts": "More posts", "newer": "Newer", "older": "Older"},
+  "home": {"wake": "wake up, visitor…", "now": "Now", "nowMore": "More on the /now page", "featured": "Selected projects", "latest": "Latest", "quotes": "What people say", "showAll": "Show all {n}", "showFewer": "Show fewer", "contact": "Contact", "writeTo": "Write to me at", "copy": "Copy", "copied": "Copied", "selected": "Selected: press Ctrl+C", "allOfType": "All {n} {type}", "rabbit": "follow the white rabbit →"},
+  "tags": {"title": "Tags", "none": "No tags yet."},
+  "notFound": {"title": "Page not found", "text": "This page doesn't exist, or not anymore. Maybe the wind blew it away.", "home": "Home page", "journal": "Open the journal", "terminal": "Open the terminal"},
+  "footer": {"build": "built", "commit": "commit", "weight": "≈ {kb} kB · {g} g CO₂/view", "weightNoJs": "light page", "weightTitle": "Measured in your browser: every file of this page. Sustainable Web Design model (≈ 0.1 g CO₂ per MB).", "privacy": "0 cookies · 0 trackers", "privacyStats": "0 cookies · anonymous visit stats", "badge": "88×31 button", "madeWith": "Made with {joran}", "privacyCookies": "Privacy & cookies"},
+  "privacy": {
+    "none": "No cookies, no trackers, no analytics. This site does not know who you are.",
+    "withStats": "No cookies and no advertising trackers. Visits are counted anonymously: no personal data, no IP address stored. If your browser blocks the counter, nothing breaks.",
+    "goatcounter": "Counter: <a href=\"https://www.goatcounter.com/help/gdpr\">GoatCounter</a>, open source.",
+    "plausible": "Counter: <a href=\"https://plausible.io/data-policy\">Plausible</a>, open source, hosted in the EU.",
+    "umami": "Counter: <a href=\"https://umami.is/docs\">Umami</a>, open source.",
+    "fonts": "All fonts are served by this site: no request goes to Google or any other third party.",
+    "custom": "Counter: {name}.",
+    "customCookies": "Visit statistics use {name}, which sets cookies. You were asked for your consent."
+  },
+  "console": {"headline": "Reading the console? We should talk.", "tip": "Tip: press ~ (or §) on the site to open the terminal."},
+  "term": {
+    "user": "visitor",
+    "welcome": "{site} shell. Type <b>help</b> for the commands, <b>exit</b> or Esc to close.",
+    "help": "<b>ls</b> [journal|projects]  list   <b>cd</b> &lt;section&gt;  go to\n<b>open</b> &lt;n°|slug&gt;  open a post   <b>grep</b> &lt;word&gt;  search   <b>tags</b>  tag cloud\n<b>theme</b> light|dark|rain   <b>whoami</b>   <b>neofetch</b>   <b>date</b>   <b>history</b>   <b>clear</b>   <b>exit</b>\nTab completes, ↑ ↓ recall history.",
+    "toRead": "→ open <n°> to read",
+    "posts": "posts",
+    "noDir": "cd: {x}: no such section. Try ls.",
+    "noPost": "open: post not found. Run ls journal first.",
+    "grepUsage": "usage: grep <word>",
+    "results": "{n} result(s). open <n°> to read.",
+    "themeUsage": "usage: theme light|dark|rain",
+    "themeSet": "theme: {x}",
+    "redpill": "Wake up, visitor… Follow the white rabbit.",
+    "bluepill": "The story ends. You wake up in your bed and believe whatever you want to believe.",
+    "whoami": "visitor. A curious one, though: few people find this terminal.",
+    "sudo": "Nice try. This incident will be reported to… nobody: no trackers here.",
+    "sudoStats": "Nice try. This incident will be reported to… a visit counter that doesn't know who you are.",
+    "rm": "Denied. Around here we recycle, we don't destroy.",
+    "editor": "{x}: editor unavailable. The debate is closed.",
+    "unknown": "{x}: command not found. Type help.",
+    "neofetch": {
+      "os": "static HTML, 0 servers",
+      "uptime": "since {since}",
+      "tracker": "none",
+      "trackerStats": "anonymous counter, no cookies"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+name: Feature idea
+description: Suggest something Joran could do.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes: { label: What would you like to do?, description: "Describe the need first, then the solution you imagine." }
+    validations: { required: true }
+  - type: textarea
+    id: alt
+    attributes: { label: How do you do it today?, description: "Workarounds, other themes, plugins." }

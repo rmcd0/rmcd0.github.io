@@ -1,0 +1,44 @@
+{
+  "name": "joran",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Joran: a fast, private, no-build-step Eleventy theme for personal sites, journals and portfolios.",
+  "type": "module",
+  "scripts": {
+    "start": "npm run clean && eleventy --serve --quiet",
+    "build": "npm run clean && eleventy",
+    "clean": "node scripts/clean.mjs",
+    "new": "node scripts/new-post.mjs",
+    "check": "npm run build && npm run check:links && npm run check:html",
+    "check:links": "node scripts/check-links.mjs",
+    "check:html": "html-validate \"_site/**/*.html\"",
+    "update-theme": "node scripts/update-theme.mjs",
+    "test:empty": "node scripts/test-empty-site.mjs",
+    "test:configs": "node scripts/test-configs.mjs"
+  },
+  "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.8",
+    "@11ty/eleventy-img": "7.1.1",
+    "html-validate": "11.21.1",
+    "nunjucks": "3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rmcd0/joran.git"
+  },
+  "homepage": "https://github.com/rmcd0/joran",
+  "keywords": [
+    "eleventy",
+    "eleventy-theme",
+    "11ty",
+    "static-site",
+    "blog",
+    "portfolio",
+    "github-pages",
+    "personal-website"
+  ]
+}

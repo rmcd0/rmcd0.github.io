@@ -1,0 +1,25 @@
+/* The hidden terminal (features.terminal): a panel docked at the bottom of the screen, built on <dialog>. */
+@layer components {
+  .term {
+    position: fixed; inset: auto 0 0 0; z-index: 50; width: 100%; max-width: none; height: min(46vh, 420px); max-height: none; margin: 0; padding: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border: 0; border-top: 2px solid #9b8cff;
+    background: rgb(12 12 28 / .97); color: #ecebff; box-shadow: 0 -12px 40px rgb(0 0 0 / .35);
+    font: 13px/1.55 "IBM Plex Mono", ui-monospace, monospace;
+  }
+  .term[open] { display: flex; flex-direction: column; }
+  .term::backdrop { background: transparent; }
+  .term-bar { display: flex; justify-content: space-between; align-items: center; padding: 6px 16px; background: linear-gradient(90deg, #9b8cff, #ff7ac6); color: #141428; font-size: 12px; font-weight: 600; }
+  .term-x { border: 0; background: transparent; color: #141428; font: 600 12px "IBM Plex Mono", monospace; }
+  .term-out { flex: 1; overflow: auto; padding: 10px 16px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .term-out b { color: #ff9fd3; font-weight: 600; }
+  .term-d { color: #b9b0ff; }
+  .term-pre { margin: 0; font: inherit; white-space: pre; overflow-x: auto; }
+  .term-line { display: flex; gap: 8px; padding: 8px 16px 12px; border-top: 1px solid #2b2952; }
+  .term-ps { color: #41ff7a; }
+  .term-in { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; color: #ecebff; font: inherit; caret-color: #ff7ac6; }
+  .term mark { background: #4a2a5e; color: #ffd6ee; }
+  :root[data-mode="rain"] .term { border-top-color: #41ff7a; background: rgb(1 12 5 / .97); color: #41ff7a; }
+  :root[data-mode="rain"] .term-bar { background: #0b3318; color: #b6ffcb; }
+  :root[data-mode="rain"] .term-x { color: #b6ffcb; }
+}

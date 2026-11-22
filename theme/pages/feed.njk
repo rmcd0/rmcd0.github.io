@@ -1,0 +1,38 @@
+---
+# Joran · Atom feed of published posts, full text, newest first. Address: site.feed.path (default /feed.xml).
+permalink: "{{ site.feed.path }}"
+layout: false
+eleventyExcludeFromCollections: true
+---
+{%- set base = site.url + "/" -%}
+{%- set entries = collections.posts | limit(site.feed.limit or collections.posts.length) -%}
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.defaultLanguage }}">
+  <title>{{ site.title }}</title>
+  {%- if site.description %}
+  <subtitle>{{ site.description | l10n }}</subtitle>
+  {%- endif %}
+  <link href="{{ site.feed.path | htmlBaseUrl(base) }}" rel="self" type="application/atom+xml"/>
+  <link href="{{ '/' | htmlBaseUrl(base) }}" rel="alternate" type="text/html"/>
+  <id>{{ '/' | htmlBaseUrl(base) }}</id>
+  <updated>{{ (entries[0].date if entries.length else build.date) | atomDate }}</updated>
+  <author><name>{{ site.author.name or site.title }}</name>{% if site.author.url %}<uri>{{ site.author.url }}</uri>{% endif %}</author>
+  <generator uri="https://www.11ty.dev/">Eleventy + Joran {{ joran.version }}</generator>
+  {%- for post in entries %}{% if not post.data.draft %}
+  {%- set postUrl = post.url | htmlBaseUrl(base) %}
+  <entry xml:lang="{{ post.data.lang }}">
+    <title>{{ post.data.title }}</title>
+    <link href="{{ postUrl }}" rel="alternate" type="text/html"/>
+    <id>{{ postUrl }}</id>
+    <published>{{ post.date | atomDate }}</published>
+    <updated>{{ (post.data.updated or post.date) | atomDate }}</updated>
+    {%- if post.data.description %}
+    <summary>{{ post.data.description }}</summary>
+    {%- endif %}
+    {%- for tg in [].concat(post.data.tags or []) %}
+    <category term="{{ tg }}"/>
+    {%- endfor %}
+    <content type="html">{{ post.content | renderTransforms(post.data.page, base) }}</content>
+  </entry>
+  {%- endif %}{% endfor %}
+</feed>

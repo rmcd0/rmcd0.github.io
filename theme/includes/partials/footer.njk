@@ -1,0 +1,25 @@
+{#- Joran · footer. Every part can be switched off in site.config.js > footer. -#}
+{%- set ft = site.footer %}
+{%- set privacyKey = "footer.privacyCookies" if site.stats.level == "cookies" else ("footer.privacyStats" if site.stats.level == "anonymous" else "footer.privacy") %}
+{%- set showCommit = ft.commit and build.commit and site.repo %}
+<footer class="foot">
+  {%- if ft.buildDate or showCommit or ft.pageWeight or ft.privacyNote %}
+  {%- set sep = joiner('<span aria-hidden="true">·</span>') %}
+  <p class="foot-row">
+    {%- if ft.buildDate %}{{ sep() | safe }}<span>{{ "footer.build" | t }} <time datetime="{{ build.date }}">{{ build.date | isoDate }}</time></span>{% endif %}
+    {%- if showCommit %}{{ sep() | safe }}<a href="{{ site.repo }}/commit/{{ build.commit }}" rel="noopener">{{ "footer.commit" | t }} {{ build.commit | truncate(7, true, "") }}</a>{% endif %}
+    {%- if ft.pageWeight %}{{ sep() | safe }}<span data-weight data-template="{{ 'footer.weight' | t }}" title="{{ 'footer.weightTitle' | t }}">{{ "footer.weightNoJs" | t }}</span>{% endif %}
+    {%- if ft.privacyNote %}{{ sep() | safe }}<a class="u2" href="{{ '/colophon/' | localeUrl }}#privacy">{{ privacyKey | t }}</a>{% endif %}
+  </p>
+  {%- endif %}
+  <p class="foot-row">
+    {%- if ft.badge %}<span class="badge88" title="{{ 'footer.badge' | t }}">{{ ft.badge.text }}<b{% if not site.features.blinkingCursor %} class="still"{% endif %}>_</b><i>{{ ft.badge.tld }}</i></span>{% endif %}
+    {%- if ft.webring %}<a class="ring" href="{{ ft.webring.url }}" rel="noopener" title="{{ ft.webring.name }}">{{ icon(ft.webring.icon or "webring", 20) | safe }}<span>webring</span></a>{% endif %}
+    {%- if ft.feedLink %}<a class="ring" href="{{ site.feed.path }}">{{ icon("rss", 16) | safe }}<span>RSS</span></a>{% endif %}
+    <span class="spacer"></span>
+    {%- for item in site.footerNav | default([]) %}
+    <a class="u2" href="{{ item.url | localeUrl }}">{{ (item.label | l10n) if item.label else (("nav." + item.key) | t) }}</a>
+    {%- endfor %}
+    {%- if ft.madeWith %}<span class="made">{{ "footer.madeWith" | t | replace("{joran}", '<a class="u2" href="' + joran.homepage + '" rel="noopener">Joran</a>') | safe }}</span>{% endif %}
+  </p>
+</footer>

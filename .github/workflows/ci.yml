@@ -1,0 +1,36 @@
+# Checks every pull request: the site builds, internal links work, the HTML is valid.
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        node: [22, 24, 26]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: Build under a path prefix (project sites)
+        run: npm run build && npm run check:links
+        env:
+          PATH_PREFIX: /joran/
+      - name: Build an empty site (no posts, no pages)
+        run: node scripts/test-empty-site.mjs
+      - name: Build the demo with several settings
+        run: node scripts/test-configs.mjs

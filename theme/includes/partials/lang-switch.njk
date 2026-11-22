@@ -1,0 +1,17 @@
+{#- Joran · language switch, shown when site.languages has more than one language.
+    Goes to the translation of the current page when there is one (same `translationKey`), else to the home page of that language. -#}
+{%- if site.languages.length > 1 %}
+{%- set alternates = collections.translations[translationKey] if translationKey else [] %}
+<nav class="langs" aria-label="{{ 'a11y.languages' | t }}">
+  <ul role="list">
+  {%- for l in site.languages %}
+    {%- set target = "" %}
+    {%- for a in alternates %}{% if a.lang == l %}{% set target = a.url %}{% endif %}{% endfor %}
+    {%- if not target and pageLang %}{% set target = (l | langPrefix) + (page.url | replace((uiLang | langPrefix) + "/", "/")) %}{% endif %}
+    {%- if not target %}{% set target = (l | langPrefix) + "/" %}{% endif %}
+    <li><a href="{{ target }}" hreflang="{{ l }}" lang="{{ l }}"{% if l == uiLang %} aria-current="true"{% endif %} title="{{ l | languageName }}">{{ l | upper }}</a></li>
+  {%- endfor %}
+  </ul>
+</nav>
+{%- else %}<span></span>
+{%- endif %}

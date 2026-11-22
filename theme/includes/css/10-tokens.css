@@ -1,0 +1,96 @@
+/*
+ * Design tokens. Override any of them in content/assets/custom.css, e.g.
+ *   :root { --accent: light-dark(#b5781f, #ff7ac6); }
+ * light-dark(<light value>, <dark value>) follows the visitor's mode automatically,
+ * so each token is declared once for both modes.
+ */
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    /* type */
+    --font-text: "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    --font-display: var(--font-text);
+    --font-retro: "VT323", "IBM Plex Mono", monospace;
+    --text-xs: 11px; --text-sm: 13px; --text-base: 15px; --text-md: 17px; --text-lg: 20px; --text-xl: 28px;
+    --leading: 1.65;
+
+    /* space & shape */
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px; --space-6: 32px; --space-7: 40px; --space-8: 56px;
+    --radius-sm: 6px; --radius: 10px; --radius-pill: 999px;
+    --sidebar-width: 240px;
+    --measure: 760px;
+    --shadow: 0 10px 30px rgb(0 0 0 / .18);
+  }
+
+  /*
+   * Palette "joran" (default): warm paper by day; midnight purple with pink and lilac
+   * gradients by night. Indie web, a little retro.
+   */
+  :root, [data-palette="joran"] {
+    --bg:        light-dark(#f4ecdb, #0f0f1f);
+    --bg-top:    light-dark(#f4ecdb, #141428);   /* top of the page background gradient */
+    --bg-side:   light-dark(#ebe0c9, #151530);
+    --side-a:    light-dark(#ebe0c9, #1b1b3d);   /* sidebar gradient, top → bottom */
+    --side-b:    light-dark(#ebe0c9, #121228);
+    --surface:   light-dark(#f9f3e6, #1b1b36);   /* cards, filters, code */
+    --hover:     light-dark(#e2d5ba, #24224a);
+    --fg:        light-dark(#2b2418, #ecebff);
+    --muted:     light-dark(#7b6d56, #a9a6d0);
+    --line:      light-dark(#dccfb3, #2b2952);
+    --accent:    light-dark(#b5781f, #ff7ac6);
+    --accent-fg: light-dark(#ffffff, #2a0d24);
+    --grad-a:    light-dark(#2b2418, #9b8cff);   /* headings and highlights gradient */
+    --grad-b:    light-dark(#2b2418, #ff7ac6);
+    --active-a:  light-dark(#e2d5ba, rgb(155 140 255 / .26)); /* current menu item, pressed buttons */
+    --active-b:  light-dark(#e2d5ba, rgb(255 122 198 / .16));
+    --rule-a:    light-dark(#dccfb3, #9b8cff);   /* line under the breadcrumb bar */
+    --rule-b:    light-dark(#dccfb3, #ff7ac6);
+    --glow-1:    light-dark(transparent, rgb(155 140 255 / .22));
+    --glow-2:    light-dark(transparent, rgb(255 122 198 / .14));
+    --tag-1:     light-dark(#e9c98d, #4a2a5e);
+    --tag-2:     light-dark(#bfd1ad, #2a3466);
+    --tag-3:     light-dark(#bccce0, #33306e);
+    --tag-4:     light-dark(#e6b9ad, #5c2a4e);
+    --lang-en:   light-dark(#bccce0, #b9b0ff);  --lang-en-fg: light-dark(#2b2418, #1d1640);
+    --lang-fr:   light-dark(#e9c98d, #ff8fcf);  --lang-fr-fg: light-dark(#2b2418, #2a0d24);
+    --lang-other: light-dark(#bfd1ad, #2a3466); --lang-other-fg: light-dark(#2b2418, #ecebff);
+    --badge-bg:  linear-gradient(135deg, #141428, #3a2d6e 60%, #ff7ac6);
+    --badge-fg:  #ecebff; --badge-accent: #ff7ac6;
+  }
+
+  /* Palette "lake": limestone of the Jura by day, Lake Geneva by night. Calmer. */
+  [data-palette="lake"] {
+    --bg: light-dark(#f6f4ef, #0d1520); --bg-top: light-dark(#f6f4ef, #101b29);
+    --bg-side: light-dark(#edeae2, #111b28); --side-a: var(--bg-side); --side-b: var(--bg-side);
+    --surface: light-dark(#fbfaf7, #152131); --hover: light-dark(#e3dfd4, #1b2a3d);
+    --fg: light-dark(#1b2330, #e4ebf2); --muted: light-dark(#566170, #97a6b6); --line: light-dark(#d9d4c7, #22324a);
+    --accent: light-dark(#1b6680, #6cc4da); --accent-fg: light-dark(#ffffff, #07202a);
+    --grad-a: var(--fg); --grad-b: var(--fg); --active-a: var(--hover); --active-b: var(--hover);
+    --rule-a: var(--line); --rule-b: var(--line);
+    --glow-1: light-dark(rgb(27 102 128 / .07), rgb(108 196 218 / .14)); --glow-2: light-dark(transparent, rgb(91 125 214 / .12));
+    --tag-1: light-dark(#cfe3e8, #1d3a47); --tag-2: light-dark(#e6dcbf, #2c3a2a); --tag-3: light-dark(#dbe0ee, #262f52); --tag-4: light-dark(#ecd8cc, #43283a);
+    --lang-en: light-dark(#cfe3e8, #24506a); --lang-en-fg: var(--fg); --lang-fr: light-dark(#e9dcc2, #5a4a24); --lang-fr-fg: var(--fg);
+    --lang-other: light-dark(#d6e6d3, #2e5133); --lang-other-fg: var(--fg);
+    --badge-bg: linear-gradient(135deg, #0d1520, #1b6680 60%, #6cc4da); --badge-fg: #e4ebf2; --badge-accent: #e7b94e;
+  }
+
+  /* Palette "mono": black on white, for the minimalists. */
+  [data-palette="mono"] {
+    --bg: light-dark(#ffffff, #0b0b0b); --bg-top: var(--bg); --bg-side: var(--bg); --side-a: var(--bg); --side-b: var(--bg);
+    --surface: light-dark(#f6f6f6, #151515); --hover: light-dark(#ececec, #222222);
+    --fg: light-dark(#111111, #eeeeee); --muted: light-dark(#595959, #a3a3a3); --line: light-dark(#e2e2e2, #2a2a2a);
+    --accent: light-dark(#111111, #ffffff); --accent-fg: light-dark(#ffffff, #000000);
+    --grad-a: var(--fg); --grad-b: var(--fg); --active-a: var(--hover); --active-b: var(--hover); --rule-a: var(--line); --rule-b: var(--line);
+    --glow-1: transparent; --glow-2: transparent;
+    --tag-1: var(--surface); --tag-2: var(--surface); --tag-3: var(--surface); --tag-4: var(--surface);
+    --lang-en: var(--hover); --lang-en-fg: var(--fg); --lang-fr: var(--hover); --lang-fr-fg: var(--fg);
+    --lang-other: var(--hover); --lang-other-fg: var(--fg);
+    --badge-bg: var(--fg); --badge-fg: var(--bg); --badge-accent: var(--bg);
+  }
+
+  /* Forced choice from the theme switch (stored in the browser) */
+  :root[data-mode="light"] { color-scheme: light; }
+  :root[data-mode="dark"]  { color-scheme: dark; }
+}

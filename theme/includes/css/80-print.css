@@ -1,0 +1,8 @@
+@media print {
+  .side, .foot, .pager, .filters, .rain, .skip, .crumb, .post-foot { display: none !important; }
+  .layout { display: block; }
+  .body { padding: 0; max-width: none; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  h1 { color: #000; background: none; }
+  .prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .85em; color: #555; }
+}

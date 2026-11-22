@@ -1,0 +1,11 @@
+{#- Joran · privacy statement, included in the colophon with {% include "partials/privacy.njk" %}. Texts in theme/i18n (privacy.*). -#}
+{%- if site.stats.level == "none" %}
+<p>{{ "privacy.none" | t }}</p>
+{%- else %}
+<p>{{ ("privacy.customCookies" if site.stats.level == "cookies" else "privacy.withStats") | t({ name: site.stats.names }) | safe }}</p>
+{%- if site.analytics.goatcounter %}<p>{{ "privacy.goatcounter" | t | safe }}</p>{% endif %}
+{%- if site.analytics.plausible %}<p>{{ "privacy.plausible" | t | safe }}</p>{% endif %}
+{%- if site.analytics.umami.websiteId %}<p>{{ "privacy.umami" | t | safe }}</p>{% endif %}
+{%- if site.analytics.custom.html and site.stats.level != "cookies" %}<p>{% if site.analytics.custom.privacyUrl %}<a href="{{ site.analytics.custom.privacyUrl }}">{{ "privacy.custom" | t({ name: site.analytics.custom.name or "?" }) }}</a>{% else %}{{ "privacy.custom" | t({ name: site.analytics.custom.name or "?" }) }}{% endif %}</p>{% endif %}
+{%- endif %}
+<p>{{ "privacy.fonts" | t }}</p>

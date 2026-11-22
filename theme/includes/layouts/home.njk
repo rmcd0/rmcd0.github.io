@@ -1,0 +1,58 @@
+---
+layout: base.njk
+---
+{#- Joran · home layout. The Markdown of the page is the introduction; the sections below come from site.config.js. -#}
+<div class="home">
+  {%- if site.features.rainTheme %}<p class="eyebrow rain-only" aria-hidden="true">{{ "home.wake" | t }}</p>{% endif %}
+  <h1>{{ heading or title }}</h1>
+  <div class="prose">
+{{ content | safe }}
+  </div>
+
+  {%- if now %}
+  <section class="home-now" aria-labelledby="h-now">
+    <h2 id="h-now">{{ "home.now" | t }}</h2>
+    <p>{{ now | mdInline | safe }}{% if nowUrl %} <a class="u" href="{{ nowUrl | localeUrl }}">{{ "home.nowMore" | t }}</a>.{% endif %}</p>
+  </section>
+  {%- endif %}
+
+  {#- Featured cards. No featured post = no section, and no "latest" line either. -#}
+  {%- set featured = collections.posts | bySlugs(site.home.featured) %}
+  {%- if featured.length %}
+  {%- set mainType = featured[0].data.type %}
+  {%- set sameType = collections.posts | ofType(mainType) %}
+  <section aria-labelledby="h-featured">
+    <h2 id="h-featured">{{ (site.home.featuredTitle | l10n) or ("home.featured" | t) }}</h2>
+    <ul class="cards" role="list">
+    {%- for p in featured %}
+      <li><a class="card" href="{{ p.url }}"><time datetime="{{ p.date | isoDate }}">{{ p.date | year }}</time><b>{{ p.data.title }}</b><small>{{ p.data.description }}</small></a></li>
+    {%- endfor %}
+    </ul>
+    {%- if site.home.showLatest %}
+    {%- set last = (collections.posts | published | first) %}
+    <p class="more"><a class="u" href="{{ '/journal/' | localeUrl }}?type={{ mainType }}">{{ "home.allOfType" | t({ n: sameType.length, type: (mainType | typeLabel(true) | lower) }) }}</a> · {{ "home.latest" | t }}: <a class="u" href="{{ last.url }}">{{ last.data.title }}</a></p>
+    {%- endif %}
+  </section>
+  {%- endif %}
+
+  {%- set quotes = testimonials | default([]) %}
+  {%- if quotes.length %}
+  <section aria-labelledby="h-quotes">
+    <h2 id="h-quotes">{{ "home.quotes" | t }}</h2>
+    <div class="quotes" data-quotes>
+    {%- for q in quotes %}
+      <figure{% if loop.index > 3 %} hidden{% endif %}{% if q.lang %} lang="{{ q.lang }}"{% endif %}><blockquote><p>{{ q.quote | l10n | mdInline | safe }}</p></blockquote><figcaption>{{ q.author }}{% if q.role %}, <span>{{ q.role | l10n }}</span>{% endif %}</figcaption></figure>
+    {%- endfor %}
+    </div>
+    {%- if quotes.length > 3 %}<button class="chip" type="button" data-all-quotes data-more="{{ 'home.showAll' | t({ n: quotes.length }) }}" data-less="{{ 'home.showFewer' | t }}" aria-expanded="false">{{ "home.showAll" | t({ n: quotes.length }) }}</button>{% endif %}
+  </section>
+  {%- endif %}
+
+  {%- if site.email.user and site.email.domain %}
+  <section aria-labelledby="contact">
+    <h2 id="contact">{{ "home.contact" | t }}</h2>
+    <p>{{ "home.writeTo" | t }} <span class="mail" data-mail="{{ site.email.user }}" data-mail-domain="{{ site.email.domain }}">{{ site.email.user }} [at] {{ site.email.domain }}</span> <button class="chip" type="button" data-copy-mail data-done="{{ 'home.copied' | t }}" data-selected="{{ 'home.selected' | t }}" hidden>{{ "home.copy" | t }}</button>{% if contactNote %} {{ contactNote | mdInline | safe }}{% endif %}</p>
+  </section>
+  {%- endif %}
+  {%- if site.features.rainTheme %}<a class="rabbit rain-only" href="{{ '/journal/' | localeUrl }}">{{ "home.rabbit" | t }}</a>{% endif %}
+</div>

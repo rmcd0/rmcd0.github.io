@@ -1,0 +1,26 @@
+{#- Joran · structured data (schema.org JSON-LD) for search engines. -#}
+{%- set person = { "@type": "Person", "name": site.author.name or site.title, "url": site.author.url or site.url } -%}
+{%- if isPost %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": page.date | isoDate,
+  "dateModified": (updated or page.date) | isoDate,
+  "inLanguage": lang,
+  "url": page.url | htmlBaseUrl(site.url),
+  "author": person,
+  "keywords": tags
+} | json | safe }}</script>
+{%- elif page.url == "/" %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": site.title,
+  "description": site.description | l10n,
+  "url": site.url + ("/" | url),
+  "inLanguage": site.defaultLanguage,
+  "author": person
+} | json | safe }}</script>
+{%- endif %}

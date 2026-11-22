@@ -1,0 +1,14 @@
+---
+permalink: /manifest.webmanifest
+layout: false
+eleventyExcludeFromCollections: true
+---
+{{ {
+  name: site.title,
+  short_name: site.title,
+  description: site.description | l10n,
+  lang: site.defaultLanguage,
+  start_url: "/" | url,
+  display: "browser",
+  icons: [{ src: site.favicon | url, sizes: "any", type: ("image/svg+xml" if site.favicon.endsWith(".svg") else "image/png") }]
+} | json | safe }}

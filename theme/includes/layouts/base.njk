@@ -1,0 +1,27 @@
+{#- Joran · base layout: the HTML shell of every page. Override a part by copying a partial into content/_includes/partials/. -#}
+<!doctype html>
+<html lang="{{ uiLang }}" dir="ltr" data-palette="{{ site.palette }}"{% if site.defaultMode != "auto" %} data-mode="{{ site.defaultMode }}"{% endif %}>
+<head>
+{% include "partials/head.njk" %}
+{%- if site.features.prefetch %}
+<script type="speculationrules">{"prefetch":[{"where":{"and":[{"href_matches":"/*"},{"not":{"selector_matches":"[download], [data-no-prefetch]"}}]},"eagerness":"moderate"}]}</script>
+{%- endif %}
+</head>
+<body>
+  <a class="skip" href="#main">{{ "a11y.skip" | t }}</a>
+  {%- if site.features.rainTheme %}<canvas class="rain" id="joran-rain" aria-hidden="true"></canvas>{% endif %}
+  <div class="layout">
+    {% include "partials/sidebar.njk" %}
+    <main class="main" id="main" tabindex="-1">
+      {% include "partials/crumb.njk" %}
+      <div class="body">
+        {{ content | safe }}
+      </div>
+      {% include "partials/footer.njk" %}
+    </main>
+  </div>
+  {% include "partials/ui-data.njk" %}
+  <script type="module" src="{{ '/assets/joran/js/main.js' | asset }}"></script>
+  {% include "partials/analytics.njk" %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+{#- Joran · optional visit statistics. Nothing is loaded unless you fill site.analytics. -#}
+{%- if site.analytics.goatcounter %}
+<script data-goatcounter="https://{{ site.analytics.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif %}
+{%- if site.analytics.plausible %}
+<script defer data-domain="{{ site.analytics.plausible }}" src="https://plausible.io/js/script.js"></script>
+{%- endif %}
+{%- if site.analytics.umami.websiteId and site.analytics.umami.src %}
+<script defer src="{{ site.analytics.umami.src }}" data-website-id="{{ site.analytics.umami.websiteId }}"></script>
+{%- endif %}
+{%- if site.analytics.custom.html %}
+{{ site.analytics.custom.html | safe }}
+{%- endif %}

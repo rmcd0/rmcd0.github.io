@@ -1,0 +1,26 @@
+/* The hidden "rain" theme, behind the red/blue pill (features.rainTheme). */
+@layer themes {
+  .rain { position: fixed; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; opacity: .32; display: none; }
+  :root[data-mode="rain"] {
+    color-scheme: dark;
+    --bg: #020904; --bg-top: #020904; --bg-side: rgb(1 12 5 / .92); --side-a: transparent; --side-b: transparent;
+    --surface: rgb(0 22 9 / .9); --hover: #0b2e15;
+    --fg: #41ff7a; --muted: #22a548; --line: #0f3d1c; --accent: #b6ffcb; --accent-fg: #021405;
+    --grad-a: #41ff7a; --grad-b: #41ff7a; --active-a: #0b2e15; --active-b: #0b2e15; --rule-a: #0f3d1c; --rule-b: #0f3d1c;
+    --glow-1: transparent; --glow-2: transparent;
+    --tag-1: #0b3318; --tag-2: #0b3318; --tag-3: #0b3318; --tag-4: #0b3318;
+    --lang-en: #0b3318; --lang-en-fg: #41ff7a; --lang-fr: #41ff7a; --lang-fr-fg: #021405;
+    --lang-other: #0b3318; --lang-other-fg: #41ff7a;
+    --badge-bg: #0b3318; --badge-fg: #41ff7a; --badge-accent: #b6ffcb;
+    --font-text: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  :root[data-mode="rain"] body { background: #020904; }
+  :root[data-mode="rain"] .rain { display: block; }
+  :root[data-mode="rain"] :is(h1, h2) { font-family: var(--font-retro); font-weight: 400; letter-spacing: .02em; text-shadow: 0 0 8px rgb(65 255 122 / .55); }
+  :root[data-mode="rain"] h1 { font-size: 40px; color: #41ff7a; background: none; }
+  :root[data-mode="rain"] h2 { font-size: 28px; }
+  :root[data-mode="rain"] .body { background: rgb(2 9 4 / .82); border-radius: 6px; }
+  :root[data-mode="rain"] .crumb::before { content: "> "; color: var(--accent); }
+  :root[data-mode="rain"] .crumb::after { content: "_"; animation: blink 1s steps(1) infinite; }
+  @media (prefers-reduced-motion: reduce) { :root[data-mode="rain"] .crumb::after { animation: none; } }
+}

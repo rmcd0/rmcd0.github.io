@@ -1,0 +1,81 @@
+{#- Joran · sidebar: brand, search, navigation, recent posts, social links, language and theme switches. -#}
+<header class="side">
+  <div class="side-top">
+    {#- h-card: the author's card for IndieWeb tools (name, site address, avatar), from site.author and site.avatar #}
+    <a class="brand h-card" href="{{ '/' | localeUrl }}">
+      <data class="p-name" value="{{ site.author.name or site.title }}" hidden></data>
+      {%- if site.avatar %}<img src="{{ site.avatar }}" alt="" width="22" height="22" eleventy:widths="44" loading="eager">{% endif -%}
+      <span>{{ site.title }}{% if site.features.blinkingCursor %}<span class="cursor" aria-hidden="true">_</span>{% endif %}</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="side-panel" hidden>{{ icon("menu", 20) | safe }}<span>{{ "a11y.menu" | t }}</span></button>
+  </div>
+  <div class="side-panel" id="side-panel">
+    {%- if site.features.search or site.features.terminal %}
+    <div class="side-tools">
+      {%- if site.features.search %}
+      <form class="search" role="search" action="{{ '/journal/' | localeUrl }}" data-search>
+        <label class="search-box">
+          <span class="visually-hidden">{{ "sidebar.searchLabel" | t }}</span>
+          {{ icon("search", 16) | safe }}
+          <input type="search" name="q" placeholder="{{ 'sidebar.search' | t }}" autocomplete="off" aria-controls="search-results" aria-autocomplete="list">
+          <kbd aria-hidden="true">/</kbd>
+        </label>
+        <div class="search-results" id="search-results" role="listbox" aria-label="{{ 'sidebar.searchLabel' | t }}" hidden></div>
+        <button class="visually-hidden" type="submit">{{ "sidebar.search" | t }}</button>
+        <p class="visually-hidden" aria-live="polite" data-search-status></p>
+      </form>
+      {%- endif %}
+      {%- if site.features.terminal %}
+      <button class="term-btn" type="button" data-terminal title="{{ 'sidebar.terminal' | t }}" aria-label="{{ 'sidebar.terminalLabel' | t }}" hidden>&gt;_</button>
+      {%- endif %}
+    </div>
+    {%- endif %}
+
+    <nav class="nav" aria-label="{{ 'a11y.mainNav' | t }}">
+      <ul role="list">
+      {%- for item in site.nav %}
+        {%- set href = item.url | localeUrl %}
+        {%- set here = page.url == href %}
+        {%- set inSection = (item.key == "journal" and isPost) or (item.key == "tags" and ("/tags/" in page.url)) %}
+        <li><a href="{{ href }}"{% if here %} aria-current="page"{% elif inSection %} aria-current="true"{% endif %}{% if item.url.startsWith("http") %} rel="noopener"{% endif %}><span class="dot" aria-hidden="true"></span>{{ (item.label | l10n) if item.label else (("nav." + item.key) | t) }}</a></li>
+      {%- endfor %}
+      </ul>
+      {%- set recent = collections.posts | ofTypes(site.sidebar.recent.types) | limit(site.sidebar.recent.count) %}
+      {%- if site.sidebar.recent.count and recent.length %}
+      <p class="nav-group">{{ "sidebar.recent" | t }}</p>
+      <ul role="list">
+      {%- for p in recent %}
+        <li><a class="recent" href="{{ p.url }}"{% if page.url == p.url %} aria-current="page"{% endif %}>{{ p.data.title }}</a></li>
+      {%- endfor %}
+      </ul>
+      {%- endif %}
+    </nav>
+
+    {%- set hasSocial = false %}
+    {%- for s in site.socials %}{% if s.url or (s.icon == "mail" and site.email.user) %}{% set hasSocial = true %}{% endif %}{% endfor %}
+    {%- if hasSocial %}
+    <ul class="social" role="list">
+    {%- for s in site.socials %}
+      {%- if s.icon == "mail" and site.email.user and site.email.domain %}
+      <li><a href="{{ '/' | localeUrl }}#contact" data-mail="{{ site.email.user }}" data-mail-domain="{{ site.email.domain }}" title="{{ s.label | l10n }}">{{ icon("mail") | safe }}<span class="visually-hidden">{{ s.label | l10n }}</span></a></li>
+      {%- elif s.url %}
+      <li><a href="{{ s.url }}"{% if s.url.startsWith("http") %} rel="me"{% endif %} title="{{ s.label | l10n }}">{{ icon(s.icon) | safe }}<span class="visually-hidden">{{ s.label | l10n }}</span></a></li>
+      {%- endif %}
+    {%- endfor %}
+    </ul>
+    {%- endif %}
+
+    <div class="side-bottom">
+      {% include "partials/lang-switch.njk" %}
+      {%- if site.features.themeSwitcher %}
+      <div class="modes" role="group" aria-label="{{ 'theme.label' | t }}" data-modes hidden>
+        <button type="button" data-mode="light" title="{{ 'theme.light' | t }}" aria-pressed="false"><span aria-hidden="true">☼</span><span class="visually-hidden">{{ "theme.light" | t }}</span></button>
+        <button type="button" data-mode="dark" title="{{ 'theme.dark' | t }}" aria-pressed="false"><span aria-hidden="true">☾</span><span class="visually-hidden">{{ "theme.dark" | t }}</span></button>
+        {%- if site.features.rainTheme %}
+        <button type="button" class="pill" data-mode="rain" data-title="{{ 'theme.rain' | t }}" data-title-active="{{ 'theme.rainActive' | t }}" title="{{ 'theme.rain' | t }}" aria-pressed="false"><span class="pill-shape" aria-hidden="true"></span><span class="visually-hidden">{{ "theme.rainLabel" | t }}</span></button>
+        {%- endif %}
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</header>

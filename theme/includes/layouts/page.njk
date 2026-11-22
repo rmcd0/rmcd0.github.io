@@ -1,0 +1,15 @@
+---
+layout: base.njk
+---
+{#- Joran · default layout. Posts (content/posts/) get the article view, other pages a simple title + text. -#}
+{%- if isPost -%}
+{% include "partials/article.njk" %}
+{%- else -%}
+<article class="page"{% if lang != uiLang %} lang="{{ lang }}"{% endif %}>
+  <h1>{{ title }}</h1>
+  {%- if description and showDescription %}<p class="lead">{{ description }}</p>{% endif %}
+  <div class="prose">
+{{ content | safe }}
+  </div>
+</article>
+{%- endif %}

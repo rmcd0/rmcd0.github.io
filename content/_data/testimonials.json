@@ -1,0 +1,6 @@
+[
+  { "quote": { "en": "Example quote for highlighting your customer testimonials. Replace these with real words from real people, or delete this file to hide the section.", "fr": "Citation d’exemple pour mettre en avant vos recommendations clients. Remplacez-la par de vrais mots de vraies personnes, ou supprimez ce fichier pour masquer la section." }, "author": "A. Example", "role": { "en": "placeholder", "fr": "exemple" } },
+  { "quote": "Short is better: one or two sentences.", "author": "B. Example", "role": "placeholder" },
+  { "quote": "Markdown works here too: *italics*, **bold**, [links](https://example.com).", "author": "C. Example", "role": "placeholder" },
+  { "quote": "From the fourth quote on, a “Show all” button appears.", "author": "D. Example", "role": "placeholder" }
+]

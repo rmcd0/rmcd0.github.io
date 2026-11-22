@@ -1,0 +1,31 @@
+/* Layout: a sticky sidebar and a reading column with a breadcrumb bar. Below 760px the sidebar becomes a header with a menu button. */
+@layer layout {
+  .layout { position: relative; display: grid; grid-template-columns: var(--sidebar-width) minmax(0, 1fr); min-height: 100vh; font-size: var(--text-base); }
+
+  .side {
+    position: sticky; top: 0; z-index: 1; height: 100vh; overflow-y: auto;
+    display: flex; flex-direction: column; gap: var(--space-3);
+    padding: var(--space-4) var(--space-3); padding-left: max(var(--space-3), env(safe-area-inset-left, 0px));
+    background-color: var(--bg-side); background-image: linear-gradient(180deg, var(--side-a), var(--side-b));
+    border-inline-end: 1px solid var(--line);
+  }
+  .side-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); }
+  .side-panel { display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
+  .side-bottom { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding: 6px; font-size: var(--text-sm); }
+
+  .main { position: relative; z-index: 1; min-width: 0; display: flex; flex-direction: column; }
+  .crumb {
+    padding: 10px var(--space-5); padding-right: max(var(--space-5), env(safe-area-inset-right, 0px));
+    border-bottom: 1px solid var(--line); border-image: linear-gradient(90deg, var(--rule-a), var(--rule-b)) 1;
+    font-size: var(--text-sm); color: var(--muted);
+  }
+  .crumb a { color: inherit; }
+  .body { width: 100%; max-width: var(--measure); padding: 28px var(--space-5) var(--space-7); padding-right: max(var(--space-5), env(safe-area-inset-right, 0px)); }
+
+  @media (max-width: 760px) {
+    .layout { grid-template-columns: minmax(0, 1fr); }
+    .side { position: sticky; z-index: 30; height: auto; max-height: 100vh; border-inline-end: 0; border-bottom: 1px solid var(--line); padding: var(--space-3) var(--space-4); }
+    .js .side-panel:not([data-open]) { display: none; }
+    .crumb, .body { padding-left: max(var(--space-4), env(safe-area-inset-left, 0px)); padding-right: var(--space-4); }
+  }
+}

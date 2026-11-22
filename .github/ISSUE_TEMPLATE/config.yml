@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and help
+    url: https://github.com/rmcd0/joran/discussions
+    about: Ask how to do something, show your site, share ideas.
+  - name: Eleventy documentation
+    url: https://www.11ty.dev/docs/
+    about: For questions about Eleventy itself.

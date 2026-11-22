@@ -1,0 +1,15 @@
+---
+pagination:
+  data: collections.tagPages
+  size: 1
+  alias: tg
+  addAllPagesToCollections: false
+permalink: "{{ tg.prefix }}/tags/{{ tg.slug }}/"
+eleventyComputed:
+  pageLang: "{{ tg.lang }}"
+  title: "#{{ tg.name }}"
+layout: base.njk
+---
+{%- from "partials/postlist.njk" import postlist -%}
+<h1>#{{ tg.name }}</h1>
+{{ postlist(collections.posts | withTag(tg.name), site) }}

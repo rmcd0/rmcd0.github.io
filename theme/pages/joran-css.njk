@@ -1,0 +1,16 @@
+---
+# Joran · the stylesheet, assembled from theme/includes/css/ in this order into one file (one request, no build tool).
+# Add your own styles in content/assets/custom.css: it loads after this one.
+permalink: /assets/joran/joran.css
+layout: false
+eleventyExcludeFromCollections: true
+---
+{% include "css/01-layers.css" %}
+{% include "css/10-tokens.css" %}
+{% include "css/20-base.css" %}
+{% include "css/30-layout.css" %}
+{% include "css/40-components.css" %}
+{% include "css/50-prose.css" %}
+{% include "css/60-rain.css" %}
+{% include "css/70-terminal.css" %}
+{% include "css/80-print.css" %}
