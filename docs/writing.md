@@ -61,7 +61,7 @@ A **project** is something you delivered or built, with a role, a period and an 
 
 Joran uses Eleventy's Markdown ([markdown-it](https://github.com/markdown-it/markdown-it), CommonMark) with typographic quotes and dashes, and raw HTML allowed. The demo post *Markdown showcase* shows every element.
 
-- **Headings**: start at `##` (the title is the page's only `#`). `##`, `###` and `####` get an `id`, so you can link to `/my-post/#a-section`.
+- **Headings**: start at `##` (the title is the page's only `#`). `##`, `###` and `####` get an `id`, so you can link to `/my-post/#a-section` (or `#a-section` on the same page). A heading that starts with a digit gets `h-` in front: `### 2019 – 2021 · Analyst` → `#h-2019-2021-analyst`. `npm run check` tells you if a link points to a heading that does not exist.
 - **Image caption**: put a line in italics right under an image.
 - **Callout**: `<p class="callout">…</p>`.
 - **Code**: fenced blocks with three backticks.

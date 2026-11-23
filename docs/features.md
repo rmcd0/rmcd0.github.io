@@ -28,6 +28,12 @@ A third, secret theme behind the small red and blue pill next to the mode button
 
 Press <kbd>~</kbd> or <kbd>§</kbd> (or click `>_` next to the search). Commands: `help`, `ls journal`, `ls projects`, `cd <section>`, `open <n°|slug>`, `grep <word>` (full text, with the matching passage), `tags`, `theme light|dark|rain`, `whoami`, `neofetch`, `date`, `history`, `clear`, `exit`. <kbd>Tab</kbd> completes, <kbd>↑</kbd> <kbd>↓</kbd> recall history. It is a native `<dialog>`: focus stays inside, <kbd>Esc</kbd> closes it. The texts are in the interface dictionaries (`term.*`), so you can change them in `content/i18n/<lang>.json`. The code is loaded only when the terminal opens.
 
+**Your own commands.** Add text replies under `term.commands` in `content/i18n/<lang>.json`, one dictionary per interface language, so each visitor gets the reply in their language. HTML is allowed (links, `<b>`). They appear in `help` and in <kbd>Tab</kbd> completion; built-in commands keep priority.
+
+```json
+{ "term": { "commands": { "cv": "Project manager, PMO. <a href=\"/hire/\">Read more</a>." } } }
+```
+
 ## Footer (`footer`)
 
 Each part has its own switch in `site.config.js > footer`:

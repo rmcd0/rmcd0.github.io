@@ -18,6 +18,9 @@ function build(ctx) {
   const prompt = `<span class="term-ps">${esc(user)}@${esc(host)}:~$</span>`;
   const SECT = { "~": "/", "/": "/", "..": "/", home: "/", journal: `${P}/journal/`, blog: `${P}/journal/`, projects: `${P}/journal/?type=project`, tags: `${P}/tags/`, now: "/now/", uses: "/uses/", colophon: "/colophon/", changelog: "/changelog/" };
   const hist = []; let hi = 0, last = [];
+  // Your own commands: text replies from the dictionary, term.commands.<name> (content/i18n/<lang>.json, HTML allowed)
+  const mine = t("term.commands");
+  const CUSTOM = mine && typeof mine === "object" ? mine : {};
 
   const dlg = document.createElement("dialog");
   dlg.className = "term";
@@ -35,7 +38,7 @@ function build(ctx) {
   loadIndex();
 
   const COMMANDS = {
-    help: () => print(t("term.help"), true),
+    help: () => print(t("term.help") + (Object.keys(CUSTOM).length ? `\n+ ${Object.keys(CUSTOM).map((k) => `<b>${esc(k)}</b>`).join("   ")}` : ""), true),
     ls: (arg, idx) => {
       if (/^(journal|proj)/.test(arg)) {
         last = (arg.startsWith("proj") ? idx.filter((p) => p.y === "project") : idx).slice(0, 20);
@@ -85,7 +88,7 @@ function build(ctx) {
       e.preventDefault();
       const parts = inp.value.split(" ");
       const idx = await loadIndex();
-      const pool = parts.length === 1 ? Object.keys(COMMANDS) : [...Object.keys(SECT), ...idx.map((p) => p.s)];
+      const pool = parts.length === 1 ? [...Object.keys(COMMANDS), ...Object.keys(CUSTOM)] : [...Object.keys(SECT), ...idx.map((p) => p.s)];
       const m = pool.filter((x) => x.startsWith(parts.at(-1)));
       if (m.length === 1) { parts[parts.length - 1] = m[0]; inp.value = parts.join(" ") + (parts.length === 1 ? " " : ""); }
       else if (m.length > 1) print(m.slice(0, 16).join("   "));
@@ -98,6 +101,7 @@ function build(ctx) {
     hist.push(line); hi = hist.length;
     const [c, ...a] = line.split(/\s+/);
     const fn = Object.hasOwn(COMMANDS, c) ? COMMANDS[c] : null;
+    if (!fn && Object.hasOwn(CUSTOM, c)) return print(String(CUSTOM[c]), true);
     if (!fn) return print(t("term.unknown", { x: c }));
     fn(a.join(" "), await loadIndex());
   });

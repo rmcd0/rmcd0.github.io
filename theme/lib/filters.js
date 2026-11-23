@@ -45,18 +45,21 @@ export function slugify(s = "") {
 }
 
 /** Cache-busting: "/assets/joran/joran.js" -> "/assets/joran/joran.js?v=1a2b3c4d" */
-export function makeAssetFilter({ root, fallback }) {
+export function makeAssetFilter({ root, fallback, noCache = false }) {
   const cache = new Map();
   const cssDir = path.join(root, "theme/includes/css");
+  const jsDir = path.join(root, "theme/assets/js");
   const sources = (url) => {
     if (url === "/assets/joran/joran.css") return readdirSync(cssDir).sort().map((f) => path.join(cssDir, f));
+    // main.js passes its version on to the modules it loads (terminal.js, search.js…), so it covers them all
+    if (url === "/assets/joran/js/main.js") return readdirSync(jsDir).filter((f) => f.endsWith(".js")).sort().map((f) => path.join(jsDir, f));
     if (url.startsWith("/assets/joran/")) return [path.join(root, "theme/assets", url.slice("/assets/joran/".length))];
     if (url.startsWith("/assets/")) return [path.join(root, "content/assets", url.slice("/assets/".length))];
     return [];
   };
   return (url = "") => {
     if (!url.startsWith("/") || url.includes("?")) return url;
-    if (!cache.has(url)) {
+    if (noCache || !cache.has(url)) {
       const files = sources(url).filter((f) => existsSync(f));
       const h = createHash("sha1");
       for (const file of files) h.update(readFileSync(file));

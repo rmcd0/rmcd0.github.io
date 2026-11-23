@@ -1,5 +1,6 @@
 /*
- * Checks that every internal link and image in _site/ points to a file that exists.
+ * Checks that every internal link and image in _site/ points to a file that exists,
+ * and that links to a heading (#id, on the same page or another) find it.
  * Run after a build: npm run check:links (or npm run check, which builds first).
  * External links are not checked (that needs the network and is slow).
  */
@@ -24,6 +25,11 @@ for (const page of pages) {
   for (const [, attr, raw] of html.matchAll(/\s(href|src|srcset)="([^"]+)"/g)) {
     const urls = attr === "srcset" ? raw.split(",").map((s) => s.trim().split(/\s+/)[0]) : [raw];
     for (const u of urls) {
+      if (attr === "href" && u.startsWith("#") && u.length > 1) {
+        // link to a heading on the same page
+        if (u !== "#main" && !idsOf(page).has(decodeURIComponent(u.slice(1)))) broken.push(`${path.relative(OUT, page)}: ${u} (no element with id="${u.slice(1)}")`);
+        continue;
+      }
       if (!u.startsWith("/") || u.startsWith("//")) continue;
       const [pathPart, hash] = u.split("#");
       let p = decodeURIComponent(pathPart.split("?")[0]);
