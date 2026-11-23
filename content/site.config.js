@@ -7,19 +7,18 @@
  */
 export default {
   /* ---- identity ---- */
-  title: "joran",
-  // A plain string, or one text per language: { en: "…", fr: "…" }
+  title: "rmcd",
   description: {
-    en: "Demo of Joran, a calm and fast Eleventy theme for personal sites, journals and portfolios.",
-    fr: "Démo de Joran, un thème Eleventy sobre et rapide pour sites perso, journaux et portfolios.",
+    fr: "Journal et projets : transformation numérique, politique locale, environnement et longues sorties à vélo, depuis les rives du Léman",
+    en: "Journal and projects: digital transformation, local politics, environment and long bike rides, from the shores of Lake Geneva",
   },
   // Full address of the site: origin only, no path, no trailing slash.
   // On GitHub Pages the deploy workflow sets it for you (see docs/deploy-github-pages.md).
   url: "https://example.com",
-  author: { name: "Joran demo", url: "" },
+  author: { name: "rmcd", url: "https://rmcd0.github.io/" },
   avatar: "/assets/img/avatar.jpg",      // square image in content/assets/img/, or "" for none
   ogImage: "/assets/img/og-default.jpg", // shown in link previews when a page has no image of its own
-  // favicon: "/assets/favicon.svg",     // default: the Joran wave
+  favicon: "/assets/img/favicon.png",   // default: the Joran wave
 
   /* ---- languages ----
      ONE language (the usual case): the whole interface is in it, no language switch is shown.
@@ -30,7 +29,7 @@ export default {
      plus a language switch. Remove the code again to switch it off: content/<code>/ is then ignored.
        languages: ["en", "fr"]
      Interface texts exist in English and French; any other language can be added (docs/i18n.md). */
-  languages: ["en", "fr"],
+  languages: ["fr", "en"], // French at the root, English under /en/ (home page only); each post keeps its own language (lang:)
 
   /* ---- navigation ----
      key: label from the interface dictionary (nav.home, nav.journal, nav.now…)
@@ -41,6 +40,7 @@ export default {
     { key: "tags", url: "/tags/" },
     { key: "now", url: "/now/" },
     { key: "uses", url: "/uses/" },
+    { label: { fr: "Me recruter", en: "Hire me" }, url: "/hire/" },
   ],
   footerNav: [
     { key: "colophon", url: "/colophon/" },
@@ -51,22 +51,15 @@ export default {
      About 90 icons (github, mastodon, bluesky, youtube, strava…): list in docs/configuration.md#socials
      verify: true adds <link rel="me"> (Mastodon verification, IndieWeb). */
   socials: [
-    { icon: "github", label: "GitHub", url: "https://github.com/rmcd0/joran" },
-    { icon: "bluesky", label: "Bluesky", url: "https://bsky.app/" },
-    { icon: "discord", label: "Discord", url: "https://discord.com" },
-    { icon: "mastodon", label: "Mastodon", url: "https://joinmastodon.org" },
-    { icon: "twitter", label: "X", url: "https://x.com" },
-    { icon: "facebook", label: "Facebook", url: "https://facebook.com" },
-    { icon: "instagram", label: "Instagram", url: "https://instagram.com" },
-    { icon: "youtube", label: "YouTube", url: "https://youtube.com" },
-    { icon: "soundcloud", label: "Soundcloud", url: "https://soundcloud.com" },
-    { icon: "twitch", label: "Twitch", url: "https://twitch.com" },
-    { icon: "webring", label: "webring", url: "https://webring.xxiivv.com/#random" },
+    { icon: "github", label: "GitHub", url: "https://github.com/rmcd0" },
+    { icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/marchandromain/" },
+    { icon: "medium", label: "Medium", url: "https://medium.com/@rmcd0" },
+    { icon: "twitter", label: "X", url: "https://x.com/rmcd0" },
     { icon: "mail", label: "E-mail" }, // built from `email` below
   ],
 
   /* E-mail in two parts: never written whole in the HTML, which keeps most spam robots away. */
-  email: { user: "hello", domain: "example.com" },
+  email: { user: "rmcd", domain: "duck.com" },
 
   /* ---- content types ----
      The categories of the journal: one filter button each, a label on each post (type: in front matter).
@@ -78,7 +71,7 @@ export default {
        { key: "recipe", label: { en: "Recipe", fr: "Recette" }, plural: { en: "Recipes", fr: "Recettes" } }
      Optional `empty` text, shown on the filter button while the type has no post yet:
        { key: "politics", empty: { en: "Coming soon: council questions and motions" } } */
-  types: ["post", "project"],
+  types: ["post", "project", "politics"],
   defaultType: "post", // type of posts that have no type: in their front matter
 
   /* Address of posts. {slug} = file name without the date. Also available: {year}.
@@ -90,13 +83,20 @@ export default {
     /* Cards on the home page: as many as you like, in this order (3 per row on a wide screen).
        File names in content/posts/, without the date and .md.
        [] = no cards section, and no "All projects · Latest: …" line either. */
-    featured: ["lake-cleanup-day", "mountain-hut-bookings", "open-wind-map"],
+    featured: [
+      "use-case-DMS-implementation",
+      "corporate-IT-projects",
+      "vichy-celestins-spa-project",
+      "swissvax-car-care-centers-project",
+      "crypto-dashboard-intro",
+      "blancarre-watches-project_GH",
+    ],
     featuredTitle: "",  // empty = "Selected projects" in the visitor's language
     showLatest: true,   // the "All 3 projects · Latest: …" line under the cards
   },
   /* "Recent" list in the sidebar: how many latest posts (0 = no list), and of which types ([] = all).
      Example: { count: 5, types: ["post", "project"] } leaves the other types out. */
-  sidebar: { recent: { count: 6, types: [] } },
+  sidebar: { recent: { count: 6, types: ["post", "project"] } }, // politics stay in the journal, not in "Recent"
 
   /* ---- look ----
      palette: "joran" (default: warm paper by day, midnight purple and pink by night),
@@ -115,7 +115,7 @@ export default {
     terminal: true,      // hidden terminal: press ~ or §, or click >_
     rainTheme: true,     // a third, secret theme behind the red/blue pill
     readingTime: true,   // "4 min read" on posts
-    consoleMessage: false, // a hello in the browser's developer console
+    consoleMessage: true,  // a hello in the browser's developer console
     blinkingCursor: true,  // the blinking _ after the site title and in the footer badge
     themeSwitcher: true,   // light/dark buttons
     prefetch: true,        // pages open faster: a link is fetched when the pointer rests on it
@@ -151,13 +151,13 @@ export default {
     commit: true,      // "commit 1a2b3c4", linked to GitHub (needs repo below)
     pageWeight: true,  // real weight of the page and a CO₂ estimate, measured in the visitor's browser
     privacyNote: true, // "0 cookies · 0 trackers": keep it on if you use visit statistics
-    badge: { text: "JORAN", tld: ".CH" }, // the little blinking 88×31 button; null = none
-    webring: { name: "XXIIVV webring", url: "https://webring.xxiivv.com/#random" }, // a circle of personal sites; null = none
+    badge: { text: "RMCD", tld: ".CH" }, // ✏️ change the tld once the domain is chosen // the little blinking 88×31 button; null = none
+    webring: null, // { name, url } if you join a real webring; null = none
     feedLink: true,    // RSS button
     madeWith: true,    // "Made with Joran"
   },
 
   /* ---- little extras ---- */
-  repo: "https://github.com/rmcd0/joran", // links the commit shown in the footer
+  repo: "https://github.com/rmcd0/rmcd0.github.io", // links the commit shown in the footer
   noindex: false, // true asks search engines not to index the site (staging, tests)
 };

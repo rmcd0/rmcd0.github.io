@@ -32,5 +32,3 @@ jobs:
           PATH_PREFIX: /joran/
       - name: Build an empty site (no posts, no pages)
         run: node scripts/test-empty-site.mjs
-      - name: Build the demo with several settings
-        run: node scripts/test-configs.mjs
