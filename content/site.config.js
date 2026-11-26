@@ -88,9 +88,6 @@ export default {
       "use-case-DMS-implementation",
       "custom-map-style",
       "reponse-au-GHI",
-      "crypto-dashboard-intro",
-      "blancarre-watches-project_GH",
-      "vichy-celestins-spa-project",
     ],
     featuredTitle: "",  // empty = "Selected projects" in the visitor's language
     showLatest: true,   // the "All 3 projects · Latest: …" line under the cards
