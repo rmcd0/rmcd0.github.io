@@ -30,7 +30,12 @@ layout: base.njk
     </ul>
     {%- if site.home.showLatest %}
     {%- set last = (collections.posts | published | first) %}
+    {#- Cards of one type: link to that type in the journal. Mixed cards: link to the whole journal. -#}
+    {%- if (featured | typesOf).length > 1 %}
+    <p class="more"><a class="u" href="{{ '/journal/' | localeUrl }}">{{ "home.allEntries" | t({ n: (collections.posts | published).length }) }}</a> · {{ "home.latest" | t }}: <a class="u" href="{{ last.url }}">{{ last.data.title }}</a></p>
+    {%- else %}
     <p class="more"><a class="u" href="{{ '/journal/' | localeUrl }}?type={{ mainType }}">{{ "home.allOfType" | t({ n: sameType.length, type: (mainType | typeLabel(true) | lower) }) }}</a> · {{ "home.latest" | t }}: <a class="u" href="{{ last.url }}">{{ last.data.title }}</a></p>
+    {%- endif %}
     {%- endif %}
   </section>
   {%- endif %}

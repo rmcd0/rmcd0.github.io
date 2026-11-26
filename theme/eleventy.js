@@ -197,6 +197,7 @@ export default async function joran(eleventyConfig) {
   eleventyConfig.addFilter("ofType", (posts, type) => posts.filter((p) => p.data.type === type));
   eleventyConfig.addFilter("ofTypes", (posts, types) => (types?.length ? posts.filter((p) => types.includes(p.data.type)) : posts));
   eleventyConfig.addFilter("withTag", (posts, tag) => posts.filter((p) => [].concat(p.data.tags || []).includes(tag)));
+  eleventyConfig.addFilter("typesOf", (posts) => [...new Set((posts || []).map((p) => p.data.type))]);
   eleventyConfig.addFilter("bySlugs", (posts, slugs) => (slugs || []).map((s) => posts.find((p) => p.fileSlug === s || p.data.slug === s)).filter(Boolean));
   eleventyConfig.addFilter("published", (posts = []) => posts.filter((p) => !p.data.draft));
   eleventyConfig.addFilter("limit", (arr = [], n) => arr.slice(0, n ?? 8));

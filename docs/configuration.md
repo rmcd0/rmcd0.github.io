@@ -108,7 +108,7 @@ Built-in labels, in every interface language: `post`, `project`, `politics`, `no
 | --- | --- | --- |
 | `home.featured` | `[]` | Posts shown as cards, as many as you like: file names without date and `.md`, in this order. `[]` = no cards section and no "All … · Latest" line. |
 | `home.featuredTitle` | `""` | Title of the cards section. Empty = "Selected projects" in the visitor's language. |
-| `home.showLatest` | `true` | Under the cards: "All 3 projects" (journal filtered by the type of the first card) and "Latest: …". |
+| `home.showLatest` | `true` | Under the cards: a link to the journal and "Latest: …". Cards all of one type: "All 3 projects" (journal filtered by that type). Cards of mixed types: "The complete journal (41 entries)". |
 | `sidebar.recent.count` | `6` | Number of latest posts in the sidebar. `0` hides the list and its title. |
 | `sidebar.recent.types` | `[]` | Only these types in the list, e.g. `["post"]`. Empty = all. |
 
