@@ -24,111 +24,36 @@ From your Google sheet, open [Apps Script](https://developers.google.com/apps-sc
 
 Insert the following in your editor and replace FolderID with the correct value:
 
-```
+```js
 // backup the current Spreadsheet as an XLSX file into a dedicated folder
-```
-
-```
 // you need to enable "Advanced Drive Service". In Apps Script menu, go to "Services", select "Drive API" in the list and add it
-```
-
-```
 function backupSheet() {
-```
+  // UPDATE THE FOLDER ID, for example the ID of the folder you created for your backups "My Drive/Backups"
+  var backupFolder = DriveApp.getFolderById("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var spreadsheetId = spreadsheet.getId();
+  var file = Drive.Files.get(spreadsheetId);
+  var url = file.exportLinks[MimeType.MICROSOFT_EXCEL];
 
-```
-// UPDATE THE FOLDER ID, for example the ID of the folder you created for your backups "My Drive/Backups"
-```
+  // enter sheet name you want to export - e.g. sheetName = "RawData", or leave empty if you want to take the whole spreadsheet: sheetName = ""
+  var sheetName = "";
+  if (sheetName.length) {
+    var sheet = spreadsheet.getSheetByName(sheetName);
+    var sheetId = sheet.getSheetId();
+    url += "&gid=" + sheetId;
+  }
 
-```
-var backupFolder = DriveApp.getFolderById("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-```
+  var token = ScriptApp.getOAuthToken();
+  var options = { headers: { Authorization: "Bearer " + token } };
+  var response = UrlFetchApp.fetch(url, options);
+  var doc = response.getBlob();
 
-```
-var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
-```
-
-```
-var spreadsheetId = spreadsheet.getId();
-```
-
-```
-var file = Drive.Files.get(spreadsheetId);
-```
-
-```
-var url = file.exportLinks[MimeType.MICROSOFT_EXCEL];
-```
-
-```
-// enter sheet name you want to export - e.g. sheetName = "RawData", or leave empty if you want to take the whole spreadsheet: sheetName = ""
-```
-
-```
-var sheetName = "";
-```
-
-```
-if (sheetName.length) {
-```
-
-```
-var sheet = spreadsheet.getSheetByName(sheetName);
-```
-
-```
-var sheetId = sheet.getSheetId();
-```
-
-```
-url += "&gid=" + sheetId;
-```
-
-```
-}
-```
-
-```
-var token = ScriptApp.getOAuthToken();
-```
-
-```
-var options = { headers: { Authorization: "Bearer " + token } };
-```
-
-```
-var response = UrlFetchApp.fetch(url, options);
-```
-
-```
-var doc = response.getBlob();
-```
-
-```
-// adjust date formatting to your preference. For a weekly/monthly backup I don't need hours and seconds. If so, reformat as: "GMT", "yyyy-MM-dd' 'HH-mm-ss");
-```
-
-```
-var backupDate = Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd");
-```
-
-```
-var backupName = spreadsheet.getName() + ".backup " + backupDate + ".xlsx";
-```
-
-```
-var tempFile = DriveApp.createFile(doc).setName(backupName);
-```
-
-```
-tempFile.makeCopy(backupName, backupFolder);
-```
-
-```
-tempFile.setTrashed(true);
-```
-
-```
+  // adjust date formatting to your preference. For a weekly/monthly backup I don't need hours and seconds. If so, reformat as: "GMT", "yyyy-MM-dd' 'HH-mm-ss");
+  var backupDate = Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd");
+  var backupName = spreadsheet.getName() + ".backup " + backupDate + ".xlsx";
+  var tempFile = DriveApp.createFile(doc).setName(backupName);
+  tempFile.makeCopy(backupName, backupFolder);
+  tempFile.setTrashed(true);
 }
 ```
 

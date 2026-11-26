@@ -15,7 +15,7 @@ alsoOn: "https://medium.com/@rmcd0/crypto-dashboard-6b939399cd50"
 
 ## Crypto Dashboard: under the hood
 
-Don’t have any crypto anymore but was a fun experience. So few years ago I had developed this dashboard that some people across the world are now using. Here is the archive of some infos and how-to’s for using it.
+Don’t have much crypto anymore but was a fun experience. So few years ago I had developed this dashboard that some people across the world are now using. Here is the archive of some infos and how-to’s for using it.
 
 > > Tl;dr: if you know your way around spreadhseets, fill [this form](https://forms.gle/YHWRrBQHcwtLeizi7) to request access to the Gsheet, make a copy of it and move on. It’s filled with a bit of random data & fake trades just as example.
 
@@ -33,7 +33,7 @@ Note — Apr 8th, 2022 — live price source: nomics.com has deprecated 
 
 If you have better alternatives, I’m all ears!
 
-NB — 2025 update: I’m now using Coinmarketcap API pulled via a SyncWith connection in the spreadsheet. You are a few dozen users using my template, that’s really cool! I gotta work on a major update of this article, especially in the Market Data section below, and publication of an updated spreadsheet template!
+NB — 2025 update: I’m now using Coinmarketcap API pulled via a SyncWith connection in the spreadsheet. You are a few dozen or hundreds users using my template, that’s really cool! I gotta work on a major update of this article, especially in the Market Data section below, and publication of an updated spreadsheet template.
 
 ---
 
@@ -43,14 +43,14 @@ Secondly, I’m not a fan of linking all my APIs and trade history to a centrali
 
 > > Not your app, not your data?
 
-Yes, my solution here is somehow centralized too, but Google Sheet is the messenger, not the message. If for some reason Google would terminate its product, or even if every exchange I use would die today, I‘d still have my whole trades & transactions history stored locally, with backups, and could simply just move my data in any other spreadsheet system. Data is critical, simply for my own analysis, as well as obviously for the annual closing of my portfolio and declaring my taxes.
+Yes, my solution here is somehow centralized too, but Google Sheet is the messenger, not the message. If for some reason Google would terminate its product, or even if every exchange I use would die today, I‘d still have my whole trades & transactions history stored locally, with backups, and could simply just move my data in any other spreadsheet system. Data is critical, simply for my own analysis, as well as for the sake of annual closing and declaring taxes.
 
-> 🔗 [Periodic auto backup a Google sheet](/periodic-auto-backup-google-sheets/) · rmcd0.medium.com
+> 🔗 [Periodic auto backup a Google sheet](/periodic-auto-backup-google-sheets/) · while at it..
 
 - long-lasting capacity to log thousands of lines of trades & transactions for years to come
 - easy enough to modify it on-the-fly without touching the important logged data
 
-This dashboard was primarily developed for my own use so it fits my needs and it definitely became my main page for my everyday crypto activities. However, I’d be glad if it can help you too! As per my usual open-source personal philosophy, this tool has initially been shared with a few friends, then it became more complex over time and since some people don’t know much about spreadsheets, I’ve been asked to provide some guidance, hence this step-by-step guide to unveil the logic behind it : )
+This dashboard was primarily developed for my own use so it fits my needs and it definitely became my main page for my everyday crypto activities. However, I’d be glad if it can help you too! As per my usual open-source personal philosophy, this tool has initially been shared with a few friends, then it became more complex over time and more widely shared. However since some people don’t know much about spreadsheets, I’ve been asked to provide some guidance, hence this step-by-step guide to unveil the logic behind it : )
 
 Alright, let’s dive in!
 
@@ -124,7 +124,7 @@ Here again it is important to only use the listed types: Credit, Deposit, Correc
 
 All in all, this sheet is the core root of this whole system. Every other sheet is worthless if RawData isn’t carefully maintained. A good practice is to download an archive of the whole spreadsheet or just RawData every month after your closure. I wrapped this for you here:
 
-> 🔗 [Periodic auto backup a Google sheet](/periodic-auto-backup-google-sheets/) · rmcd0.medium.com
+> 🔗 [Periodic auto backup a Google sheet](/periodic-auto-backup-google-sheets/)
 
 ---
 
@@ -186,7 +186,7 @@ The text part above it comes from Settings/Custom Text, where you just need to r
 One lesson learned from these years in crypto, and to which I still often fail to abide to until this day, is to always have a decent amount of cash available for buying dips, seizing opportunities, or hedge against crashes. So I made these gauges to help me in that way.
 
 ![Investor’s Cockpit](/assets/img/posts/2021-03-22-1-i3CQnjzQIkqI0z3RjkR34Q-d8d0d1.webp)
-*Investor’s Cockpit*
+*Cockpit area*
 
 ### Cockpit
 

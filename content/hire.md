@@ -1,129 +1,129 @@
 ---
-title: Me recruter
-description: "Parcours, compétences et avis de collègues : rmcd, chef de projet en transformation numérique et PMO, cherche son prochain poste à Genève ou dans le canton de Vaud."
+title: Hire me
+description: "Background, skills and what colleagues say: rmcd, project manager in digital transformation and PMO, looking for the next role in Geneva or Vaud."
 templateEngineOverride: njk,md
 ---
 
-<p class="lead">Moi, c’est Romain, rmcd sur ce site. Chef de projet en transformation numérique et PMO, je travaille depuis une quinzaine d’années entre les métiers, l’informatique et les fournisseurs, de l’analyse du besoin à l’adoption par les utilisateurs. Je cherche mon prochain poste à Genève ou dans le canton de Vaud, de préférence là où l’intérêt public fait partie du métier.</p>
+<p class="lead">I’m Romain, rmcd on this site. A project manager in digital transformation and PMO, I have spent about fifteen years between business teams, IT and vendors, from understanding the need to getting users on board. I am looking for my next role in Geneva or Vaud, ideally where the public interest is part of the job.</p>
 
-[Parcours](#parcours) · [Compétences](#competences) · [Formation](#formation) · [Ce que je cherche](#ce-que-je-cherche) · [Avis de collègues](#ce-qu-en-disent-mes-collegues) · [Me contacter](/#contact)
+[Experience](#experience) · [Skills](#skills) · [Education](#education) · [What I’m looking for](#what-i-m-looking-for) · [What people say](#what-people-say) · [Get in touch](/#contact)
 
-## En bref
+## In short
 
-Mon terrain : structurer l’information, simplifier et automatiser les processus, puis rester jusqu’à ce que les nouveaux outils soient vraiment utilisés. Je l’ai fait dans une organisation internationale, dans la pharma, dans l’électronique et pendant cinq ans à la tête de ma propre structure. Salarié, consultant et entrepreneur, je sais partir d’une page blanche, tenir un budget et parler aussi bien aux développeurs qu’aux directions.
+My home ground: structuring information, simplifying and automating processes, then staying until the new tools are actually used. I have done it in an international organisation, in pharma, in electronics, and for five years at the head of my own company. Employee, consultant and business owner, I can start from a blank page, keep a budget, and talk to developers and directors alike.
 
-## Parcours
+## Experience
 
-### 2023 – 2025 · Chargé de projet GED (Project Officer, EDMS)
-**UICN, Union internationale pour la conservation de la nature** · Gland · temps plein
+### 2023 – 2025 · Project Officer, Document Management Systems (EDMS)
+**IUCN, International Union for Conservation of Nature** · Gland · full-time
 
-Pour la Finance, j’ai porté côté métier le déploiement de la GED M-Files dans toute l’organisation, de la preuve de concept à la formation des utilisateurs.
+For Global Finance, I led the business side of rolling out M-Files across the organisation, from proof of concept to user training.
 
-- Conçu le modèle de données documentaires (types, métadonnées, taxonomies, nommage, conservation), le modèle de sécurité et la matrice des droits d’accès.
-- Modélisé plus de 15 processus du Juridique, de la Finance et des Achats en workflows ; enquête sur les processus financiers auprès de 37 bureaux dans le monde.
-- Coordonné l’intégrateur externe en sprints ; rédigé et coordonné les scénarios de test et la recette.
-- Construit un outil pour comparer les résultats de classement par IA (LLM) sur des milliers de documents, en appui à la migration.
-- Formé et accompagné les utilisateurs d’équipes internationales.
+- Designed the document data model (types, metadata, taxonomies, naming, retention), the security model and the access-rights matrix.
+- Modelled 15+ Legal, Finance and Procurement processes as workflows; ran a finance process survey across 37 offices worldwide.
+- Coordinated the external integrator through sprints; wrote and coordinated test scenarios and acceptance testing.
+- Built a tool to compare AI (LLM) classification results across thousands of documents, in support of the migration.
+- Trained and supported users in international teams.
 
-Poste supprimé en 2025, dans la restructuration qui a touché de nombreuses organisations internationales. Le cas pratique de mon recrutement : [une GED pour une direction financière mondiale](/use-case-DMS-implementation/).
+The role ended in 2025 in the funding-driven restructuring that hit many international organisations. The case study from my recruitment: [DMS implementation for a global finance department](/use-case-DMS-implementation/).
 
-*Méthodes et outils* : M-Files, Agile, Jira, Confluence, Microsoft 365.
+*Methods and tools*: M-Files, Agile, Jira, Confluence, Microsoft 365.
 
-### 2021 – 2022 · Chef de projet GED, consultant (Project Manager, Document Management Systems)
-**Roche, Global Engineering** · Bâle · mandat de consultant
+### 2021 – 2022 · Project Manager, Document Management Systems (consultant)
+**Roche, Global Engineering** · Basel · consulting contract
 
-Dans l’équipe Document & Knowledge Management de l’ingénierie mondiale, en appui direct à son responsable, en environnement GMP.
+In the Document & Knowledge Management team of Roche Global Engineering, reporting to its Global Head, in a GMP environment.
 
-- Coordonné les preuves de concept d’OpenText xECM et d’Autodesk Construction Cloud avec les éditeurs : protocoles de test, appui au Scrum Master, reporting.
-- Piloté la résolution d’un incident mondial d’authentification (SSO) touchant plus de 10 000 licences Autodesk, avec l’IT du groupe et l’éditeur.
-- Géré les accès à la signature électronique (21 CFR Part 11) et à Veeva Vault ; rédigé des SOP et des tutoriels vidéo.
+- Coordinated proofs of concept for OpenText xECM and Autodesk Construction Cloud with the vendors: test protocols, sprint support to the Scrum Master, reporting.
+- Led the resolution of a global single sign-on incident affecting 10,000+ Autodesk licences, with group IT and the vendor.
+- Managed access to e-signature (21 CFR Part 11) and Veeva Vault; wrote SOPs and video tutorials.
 
-**Projets internes** : concept de sécurité documentaire d’un nouvel entrepôt au Maroc ; modèles d’automatisation (Apps Script) publiés sur l’intranet mondial.
+**Internal projects**: document security concept for a new warehouse in Morocco; Apps Script automation templates published on the global intranet.
 
-*Méthodes et outils* : OpenText xECM, Autodesk ACC, Veeva Vault, DocuSign, Apps Script, GMP.
+*Methods and tools*: OpenText xECM, Autodesk ACC, Veeva Vault, DocuSign, Apps Script, GMP.
 
-### 2019 – 2021 · Business analyst et opérations (Business Process & Channel Operations Analyst)
-**SpinetiX** · région lausannoise · temps plein
+### 2019 – 2021 · Business Process & Channel Operations Analyst
+**SpinetiX** · Lausanne area · full-time
 
-Poste créé chez un fabricant primé de solutions d’affichage dynamique, entre analyse métier et opérations.
+A newly created role between business analysis and operations, at an award-winning maker of digital-signage solutions.
 
-- Référent des données (CRM Dynamics 365, ERP, applications internes) : qualité et tableaux de bord KPI pour la direction.
-- Cartographié et refondu les processus transverses : Order-to-Cash, garanties, approvisionnement, facturation.
-- Automatisé des workflows avec un tech lead senior, entre les opérations et le développement.
-- Traité plus de 22 dossiers clients par semaine en moyenne, en trois langues.
+- Owned the company’s data (Dynamics 365 CRM, ERP, internal apps): data quality and KPI dashboards for management.
+- Mapped and redesigned cross-functional processes: order-to-cash, warranties, supply chain, invoicing.
+- Automated workflows with a senior tech lead, bridging operations and development.
+- Handled 22+ customer cases a week on average, in three languages.
 
-*Méthodes et outils* : Dynamics 365, Power Automate, Power Query, Airtable, Zapier, BPMN.
+*Methods and tools*: Dynamics 365, Power Automate, Power Query, Airtable, Zapier, BPMN.
 
-### 2015 – 2020 · Consultant en transformation numérique et chef d’entreprise
-**Activité indépendante** · Suisse romande
+### 2015 – 2020 · Digital Transformation Consultant & Business Owner
+**Self-employed** · French-speaking Switzerland
 
-J’ai ouvert le marché romand d’une jeune start-up du numérique, cofondé une Sàrl de marketing digital et de contenus 360°, puis continué en indépendant avec les mêmes clients. L’activité a ralenti dès 2019, à mon arrivée chez SpinetiX.
+I opened the French-speaking Swiss market for a young digital start-up, co-founded a limited company in digital marketing and 360° content, then carried on as a freelancer with the same clients. Activity slowed from 2019, when I joined SpinetiX.
 
-- Plus de 40 projets et 150 livrables ; une équipe de 10 à 12 spécialistes recrutée et coordonnée (web, photo et vidéo, SEO, VR).
-- Toute l’entreprise : vente, budgets, recrutement, assurances sociales, comptabilité et bouclements avec une fiduciaire.
-- Outils et processus de PME : CRM, ERP, automatisation du devis à la facture ; revendeur certifié Citrix Podio.
+- 40+ projects and 150+ deliverables; a team of 10 to 12 specialists recruited and coordinated (web, photo and video, SEO, VR).
+- Ran the whole business: sales, budgets, hiring, social insurance, accounting and year-end closing with a fiduciary.
+- SME tools and processes: CRM, ERP, automation from quote to invoice; certified Citrix Podio reseller.
 
-**Missions de conseil**
+**Consulting assignments**
 
-- **Swissvax**, soins automobiles : présence locale, visites virtuelles 360° et SEO pour le siège, étendus à quatre filiales. [Le projet](/swissvax-car-care-centers-project/)
-- **Blancarré Watches**, horlogerie : boutique virtuelle trilingue compatible VR, du budget au pilotage des développeurs. [Le projet](/blancarre-watches-project_GH/)
-- **Vichy Célestins Spa Hotel** : vidéo 360° en 4K, 22 scènes tournées en deux jours, livrée en moins d’un mois. [Le projet](/vichy-celestins-spa-project/)
-- **Une PME de services** : responsable des processus pour un CRM, une GED et un outil de gestion de projet sur Podio.
-- **Un réseau de plus de 500 boulangeries** : fiches Google Business Profile dans toute la Suisse.
+- **Swissvax**, car care: local presence, 360° virtual tours and SEO for the headquarters, extended to four subsidiaries. [The project](/swissvax-car-care-centers-project/)
+- **Blancarré Watches**: a trilingual, VR-ready virtual shop, from budget to developer management. [The project](/blancarre-watches-project_GH/)
+- **Vichy Célestins Spa Hotel**: a 4K 360° video, 22 scenes shot in two days, delivered in under a month. [The project](/vichy-celestins-spa-project/)
+- **A services SME**: business process owner for a CRM, document management and project management rollout on Podio.
+- **A network of 500+ bakeries**: Google Business Profile listings across Switzerland.
 
-Ce que « indépendant » veut vraiment dire : [Being a freelancer](/being-a-freelancer-what-recruiters-think-you-do/) (en anglais).
+What running a small business really involves: [Being a freelancer](/being-a-freelancer-what-recruiters-think-you-do/).
 
-### 2011 – 2015 · Assistant de projet d’ingénierie, contrôle documentaire et support IT
-**NNE Pharmaplan**, ingénierie pharmaceutique · Montreux et sites clients · trois rôles en parallèle
+### 2011 – 2015 · Engineering Project Assistant, Document Control and IT Support
+**NNE Pharmaplan**, pharma engineering · Montreux and client sites · three concurrent roles
 
-- Usine biotech neuve de 170 M€ pour UCB (500 personnes et 80 ingénieurs sur le chantier) : assurance qualité documentaire, versions, listes de livrables.
-- Superutilisateur et formateur Documentum ; guides pour les consultants externes.
-- Support informatique du bureau ; tests et déploiement de Microsoft 365, Dynamics NAV et SharePoint.
-- Coordination commerciale (CRM, propositions pour les comptes clés) et recrutement des assistant·e·s de projet.
+- EUR 170M greenfield biotech plant for UCB (500 people and 80 engineers on site): document quality assurance, version control, deliverable lists.
+- Documentum super-user and trainer; guidelines for external consultants.
+- IT support for the office; testing and rollout of Microsoft 365, Dynamics NAV and SharePoint.
+- Sales coordination (CRM, key-account proposals) and recruitment of project assistants.
 
-**Projets internes** : nouveaux locaux du bureau régional (réseau, câblage, téléphonie IP), du cahier des charges à la mise en service. [Le projet](/corporate-IT-projects/)
+**Internal projects**: new regional office fit-out (network, cabling, IP telephony), from scope to go-live. [The project](/corporate-IT-projects/)
 
-### Avant 2011 · France et Royaume-Uni
-Premiers postes dans la vente et le commerce. La prospection m’est restée : décrocher le téléphone ne me fait pas peur.
+### Before 2011 · France and UK
+First jobs in sales and retail. Prospecting stayed with me: I am not afraid of picking up the phone.
 
-### Mandats et engagements
+### Civic roles and commitments
 
-- **Conseiller communal à Gland** (les Vert·e·s), depuis 2026 : budget, comptes, règlements et préavis de la Municipalité.
-- **Rédacteur en chef de *Gland Cité***, journal de l’Association économique de Gland et région, depuis 2023, à temps partiel : ligne éditoriale, équipe de quatre rédactrices, plus de 12 000 exemplaires. [Mes éditos](/archives-editos-du-gland-cite-2025/)
-- **Advisor chez Firebot**, jeune entreprise de la finance numérique : stratégie, communication, acquisition d’utilisateurs.
-- **The Shifters Suisse**, bénévole depuis 2022 : mise en place du CRM libre Odoo de l’association.
-- **Projets personnels** : [Joran](https://github.com/rmcd0/joran), le thème libre qui fait tourner ce site, et un [tableau de bord crypto](/crypto-dashboard-intro/).
+- **Municipal councillor in Gland** (Greens), since 2026: budget, accounts, regulations and proposals from the executive.
+- **Editor-in-chief of *Gland Cité***, the regional business association’s magazine, since 2023, part-time: editorial line, a team of four writers, 12,000+ copies. [My editorials](/archives-editos-du-gland-cite-2025/) (in French)
+- **Advisor at Firebot**, a young fintech company: strategy, communication, user acquisition.
+- **The Shifters Switzerland**, volunteer since 2022: set up the association’s open-source Odoo CRM.
+- **Side projects**: [Joran](https://github.com/rmcd0/joran), the open-source theme behind this site, and a home-made [crypto dashboard](/crypto-dashboard-intro/).
 
-## Compétences
+## Skills
 
-- **Méthodes et certifications** : HERMES (certifié, 2026), Scrum.org PSPO I et PSPO-AI Essentials (2026), Prosci ADKAR, Agile et Scrum, BPMN, tests et recette.
-- **Domaines** : gestion de l’information et GED, systèmes d’information métier (CRM, ERP), processus et automatisation, conduite du changement et formation, environnements réglementés (GMP, 21 CFR Part 11).
-- **Outils** : M-Files, OpenText xECM, Documentum, Veeva Vault, SharePoint et Microsoft 365, Power Automate, Dynamics 365, Jira, Confluence, Odoo, IA générative. Linux au quotidien depuis vingt ans.
-- **Langues** : français (langue maternelle), anglais (courant, langue de travail depuis 2011), espagnol (intermédiaire).
-- **Savoir-être** : pédagogue et solide quand un projet passe en phase critique ; ce sont mes collègues qui le disent, [plus bas](#ce-qu-en-disent-mes-collegues).
+- **Methods and certifications**: HERMES (certified, 2026), Scrum.org PSPO I and PSPO-AI Essentials (2026), Prosci ADKAR, Agile and Scrum, BPMN, testing and user acceptance.
+- **Fields**: information and document management, business information systems (CRM, ERP), processes and automation, change management and training, regulated environments (GMP, 21 CFR Part 11).
+- **Tools**: M-Files, OpenText xECM, Documentum, Veeva Vault, SharePoint and Microsoft 365, Power Automate, Dynamics 365, Jira, Confluence, Odoo, generative AI. A Linux user for twenty years.
+- **Languages**: French (native), English (fluent, my working language since 2011), Spanish (intermediate).
+- **Soft skills**: a patient trainer, steady when a project hits a critical phase; my colleagues say so [below](#what-people-say).
 
-## Formation
+## Education
 
-- 2013 · Certification interne IT Super User · NNE Pharmaplan, Copenhague
-- Manager de projets commerciaux (formation professionnelle) · IMP / AIFCC
-- 2007 – 2009 · BTS (diplôme français, bac + 2), gestion et management commercial · AFTEC
-- Formations continues : gestion de projet Agile (2021), Google Cloud et Data Studio, intégrité des données (Roche).
+- 2013 · IT Super User certification (internal) · NNE Pharmaplan, Copenhagen
+- Commercial Project Manager programme (professional training) · IMP / AIFCC
+- 2007 – 2009 · BTS, French two-year higher national diploma in business management · AFTEC
+- Continuing education: Agile project management (2021), Google Cloud and Data Studio, data integrity (Roche).
 
-## Ce que je cherche
+## What I’m looking for
 
-- **Postes** : chef de projet, PMO, responsable de la transformation numérique ou des systèmes d’information, business analyst, avec de vraies responsabilités.
-- **Organisations** : collectivités, institutions, fondations, associations, organisations internationales. Les entreprises aussi, quand le projet sort de l’ordinaire.
-- **Format** : poste fixe ou mission de conseil, de 80 à 100 % ; temps partiel à discuter.
-- **Région** : Genève, La Côte, Lausanne et le canton de Vaud. Disponible rapidement.
+- **Roles**: project manager, PMO, head of digital transformation or information systems, business analyst, with real responsibility.
+- **Organisations**: public authorities, institutions, foundations, associations, international organisations. Companies too, when the project is out of the ordinary.
+- **Terms**: permanent role or consulting assignment, 80 to 100 %; part-time open to discussion.
+- **Area**: Geneva, La Côte, Lausanne and the canton of Vaud. Available at short notice.
 
-## Ce qu’en disent mes collègues
+## What people say
 
 <div class="quotes">
 {%- for q in testimonials %}
-<figure lang="en"><blockquote><p>{{ q.quote }}</p></blockquote><figcaption>{{ q.author }}{% if q.role %}, <span>{{ q.role }}</span>{% endif %}</figcaption></figure>
+<figure><blockquote><p>{{ q.quote }}</p></blockquote><figcaption>{{ q.author }}{% if q.role %}, <span>{{ q.role }}</span>{% endif %}</figcaption></figure>
 {%- endfor %}
 </div>
 
-## Pour aller plus loin
+## See also
 
-[Projets](/journal/?type=project) · [LinkedIn](https://www.linkedin.com/in/marchandromain/) · [Me contacter](/#contact) · CV en PDF sur demande · la version courte : ouvrez le terminal (<kbd>§</kbd>) et tapez `cv`.
+[Projects](/journal/?type=project) · [LinkedIn](https://www.linkedin.com/in/marchandromain/) · [Get in touch](/#contact) · PDF CV on request · the short version: open the terminal (<kbd>§</kbd>) and type `cv`.

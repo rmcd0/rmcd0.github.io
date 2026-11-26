@@ -9,7 +9,6 @@ export default {
   /* ---- identity ---- */
   title: "rmcd",
   description: {
-    fr: "Journal et projets : transformation numérique, politique locale, environnement et longues sorties à vélo, depuis les rives du Léman",
     en: "Journal and projects: digital transformation, local politics, environment and long bike rides, from the shores of Lake Geneva",
   },
   // Full address of the site: origin only, no path, no trailing slash.
@@ -29,7 +28,7 @@ export default {
      plus a language switch. Remove the code again to switch it off: content/<code>/ is then ignored.
        languages: ["en", "fr"]
      Interface texts exist in English and French; any other language can be added (docs/i18n.md). */
-  languages: ["fr", "en"], // French at the root, English under /en/ (home page only); each post keeps its own language (lang:)
+  languages: ["en"], // one interface language; each post keeps its own language (lang:)
 
   /* ---- navigation ----
      key: label from the interface dictionary (nav.home, nav.journal, nav.now…)
@@ -40,7 +39,7 @@ export default {
     { key: "tags", url: "/tags/" },
     { key: "now", url: "/now/" },
     { key: "uses", url: "/uses/" },
-    { label: { fr: "Me recruter", en: "Hire me" }, url: "/hire/" },
+    { label: "Hire me", url: "/hire/" },
   ],
   footerNav: [
     { key: "colophon", url: "/colophon/" },
@@ -54,7 +53,6 @@ export default {
     { icon: "github", label: "GitHub", url: "https://github.com/rmcd0" },
     { icon: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/marchandromain/" },
     { icon: "medium", label: "Medium", url: "https://medium.com/@rmcd0" },
-    { icon: "twitter", label: "X", url: "https://x.com/rmcd0" },
     { icon: "mail", label: "E-mail" }, // built from `email` below
   ],
 
@@ -84,19 +82,22 @@ export default {
        File names in content/posts/, without the date and .md.
        [] = no cards section, and no "All projects · Latest: …" line either. */
     featured: [
+      "elections-2026-reponses-aux-questions-publiques-3-5",
+      "la-securite-lapanage-de-la-droite",
+      "debat-nrtv-gland-amenagement-du-territoire",
       "use-case-DMS-implementation",
-      "corporate-IT-projects",
-      "vichy-celestins-spa-project",
-      "swissvax-car-care-centers-project",
+      "custom-map-style",
+      "reponse-au-GHI",
       "crypto-dashboard-intro",
       "blancarre-watches-project_GH",
+      "vichy-celestins-spa-project",
     ],
     featuredTitle: "",  // empty = "Selected projects" in the visitor's language
     showLatest: true,   // the "All 3 projects · Latest: …" line under the cards
   },
   /* "Recent" list in the sidebar: how many latest posts (0 = no list), and of which types ([] = all).
      Example: { count: 5, types: ["post", "project"] } leaves the other types out. */
-  sidebar: { recent: { count: 6, types: ["post", "project"] } }, // politics stay in the journal, not in "Recent"
+  sidebar: { recent: { count: 8, types: [] } }, // every type, newest first
 
   /* ---- look ----
      palette: "joran" (default: warm paper by day, midnight purple and pink by night),

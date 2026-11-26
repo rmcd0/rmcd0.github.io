@@ -56,41 +56,34 @@ Leave the rest as it is, create it and open a browser SSH window.
 
 First, update your distro
 
-```
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
 Seperately type these to get unzip and skypool mining client, then unzip it. This is the latest version as of today but check their [Github release page](https://github.com/skypool-org/skypool-nimiq-miner/releases) in case, and adjust the following commands accordingly:
 
-```
+```bash
 sudo apt-get install unzip
-```
-
-```
-wget 
-https://github.com/skypool-org/skypool-nimiq-miner/releases/download/v1.3.4/skypool-nimiq-v1.3.4-linux-x64.zip
-```
-
-```
+wget https://github.com/skypool-org/skypool-nimiq-miner/releases/download/v1.3.4/skypool-nimiq-v1.3.4-linux-x64.zip
 sudo unzip skypool-nimiq-v1.3.4-linux-x64.zip
 ```
 
 Now we need to edit the permissions to give read, write & execute rights (nothing visible happens after entering this command, that’s normal).
 
-```
+```bash
 sudo chmod -R 777 skypool-nimiq-v1.3.4-linux-x64
 ```
 
 Now we’ll create the shell script for running the miner in the VM.
 
-```
+```bash
 vi nimiq.sh
-# 
-wait for it to open then enter:
 ```
 
-```
+Wait for it to open, then enter:
+
+```bash
 #!/bin/bash
 cd /home/USER/skypool-nimiq-v1.3.4-linux-x64
 cd /home/USER/skypool-nimiq-v1.3.4-linux-x64 & ./skypool-node-client --address="XXXX XXXX XXXX" –name=INSTANCE-NAME --percent=100  --thread=24 --server=ws://eu1.nimiq.skypool.org:4000> ~/nimiq.log &
@@ -105,33 +98,27 @@ Where:
 
 Type “esc” then “:wq” to write & quit. Now the script to automatically launch the miner. You may be prompted a message asking you to chose your among various editors, select vim.
 
-```
+```bash
 crontab -e
 ```
 
-```
-# 
-type "esc" then "i" to edit and add the following line:
-```
+Type “esc” then “i” to edit, and add the following line:
 
 ```
 @reboot /home/USER/nimiq.sh
 ```
 
-```
-# 
-then "esc" and ":wq"
-```
+Then “esc” and “:wq”.
 
 Again, some read, write & execute rights:
 
-```
+```bash
 sudo chmod -R 777 nimiq.sh
 ```
 
 To be sure, let’s type the following command and check that nimiq.sh and skypool clients are green:
 
-```
+```bash
 ls -alh
 ```
 

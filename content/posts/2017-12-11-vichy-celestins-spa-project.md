@@ -82,4 +82,4 @@ Google Streetview & POI shooting:
 ## Words from the customer:
 
 [Philippe Magne, Director of Operations, Vichy Spa International](https://www.linkedin.com/in/philippe-magne-32159a20/):
-> I used RMCD's talent to produce a 360 video of our Hotel in Vichy! His work was efficient, wisely planned and he was a dedicated partner. I would not hesitate to trust his working process in future projects.
+> I used Romain's talent to produce a 360 video of our Hotel in Vichy! His work was efficient, wisely planned and he was a dedicated partner. I would not hesitate to trust his working process in future projects.

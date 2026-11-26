@@ -1,0 +1,4 @@
+/* Your own styles, loaded after the theme (docs/customization.md). */
+
+/* Home: more room between the French intro and the English one */
+.intro-fr { margin-block-end: 3rem; }

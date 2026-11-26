@@ -1,10 +1,10 @@
 ---
 title: Changelog
-description: L’historique de ce site.
+description: The history of this site.
 ---
 
-Seulement les grands changements, du plus récent au plus ancien. Les articles n’ont pas de ligne ici : le [journal](/journal/) les liste déjà.
+Only the big changes, newest first. Posts get no line here: the [journal](/journal/) already lists them.
 
-- **2026-11** : nouveau site, construit avec [Joran](https://github.com/rmcd0/joran), mon propre thème Eleventy. 35 articles rapatriés depuis Medium et l’ancien blog, avec leurs anciennes adresses. Interface en français, page d’accueil aussi en [anglais](/en/) ; chaque article garde sa langue.
-- **2018–2026** : l’essentiel de mes écrits publiés sur Medium.
-- **Avant** : un site Jekyll avec le [thème Moon (puis Moonrise)](https://github.com/TolgaTatli/Moonrise/) de Tolga Tatli, sur GitHub Pages.
+- **2026-11**: new site, built with [Joran](https://github.com/rmcd0/joran), my own Eleventy theme. 35 posts brought home from Medium and the old blog, with their old addresses. Interface in English; each post keeps its language (French, English, the odd Spanish one). A [Hire me](/hire/) page with my full background.
+- **2018–2026**: most of my writing published on Medium.
+- **Before**: a Jekyll site with Tolga Tatli's [Moon (then Moonrise) theme](https://github.com/TolgaTatli/Moonrise/), on GitHub Pages.
