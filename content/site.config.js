@@ -13,8 +13,8 @@ export default {
   },
   // Full address of the site: origin only, no path, no trailing slash.
   // On GitHub Pages the deploy workflow sets it for you (see docs/deploy-github-pages.md).
-  url: "https://example.com",
-  author: { name: "rmcd", url: "https://rmcd0.github.io/" },
+  url: "https://rmcd.ch",
+  author: { name: "rmcd", url: "https://rmcd.ch/" },
   avatar: "/assets/img/avatar.jpg",      // square image in content/assets/img/, or "" for none
   ogImage: "/assets/img/og-default.jpg", // shown in link previews when a page has no image of its own
   favicon: "/assets/img/favicon.png",   // default: the Joran wave
@@ -149,7 +149,7 @@ export default {
     commit: true,      // "commit 1a2b3c4", linked to GitHub (needs repo below)
     pageWeight: true,  // real weight of the page and a CO₂ estimate, measured in the visitor's browser
     privacyNote: true, // "0 cookies · 0 trackers": keep it on if you use visit statistics
-    badge: { text: "RMCD", tld: ".CH" }, // ✏️ change the tld once the domain is chosen // the little blinking 88×31 button; null = none
+    badge: { text: "RMCD", tld: ".CH" }, // the little blinking 88×31 button; null = none
     webring: null, // { name, url } if you join a real webring; null = none
     feedLink: true,    // RSS button
     madeWith: true,    // "Made with Joran"
