@@ -1,6 +1,6 @@
 {
   "name": "joran",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "description": "Joran: a fast, private, no-build-step Eleventy theme for personal sites, journals and portfolios.",
   "type": "module",

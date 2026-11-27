@@ -2,3 +2,9 @@
 
 /* Home: more room between the French intro and the English one */
 .intro-fr { margin-block-end: 3rem; }
+
+/* Fold-out blocks (<details class="more-story">), e.g. "Before 2011" on the Hire page */
+.more-story { margin-block: .75rem 1.25rem; }
+.more-story > summary { cursor: pointer; width: fit-content; font-weight: 600; color: var(--accent, currentColor); }
+.more-story > summary:hover { text-decoration: underline; }
+.more-story[open] > summary { margin-block-end: .75rem; }

@@ -1,6 +1,6 @@
 # rmcd0.github.io
 
-Personal site of rmcd, published at https://rmcd0.github.io/.
+Personal site, published at https://rmcd0.github.io/.
 
 Built with the [Joran](https://github.com/rmcd0/joran) theme (GNU GPL v3 or later). The content in `content/` (texts, images, settings) is not covered by the theme's licence: see `content/LICENSE.md`.
 

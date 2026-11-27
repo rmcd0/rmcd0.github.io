@@ -6,7 +6,6 @@ lang: fr
 tags: ["society", "politics"]
 permalink: "/gland-il-est-temps-lieux-et-horaires-de-permanence-ouverte/"
 alsoOn: "https://medium.com/@rmcd0/gland-il-est-temps-lieux-et-horaires-de-permanence-ouverte-69f3d9561c9c"
-draft: true
 ---
 
 Retrouve ici les détails à propos de mes permanences dans des commerces de notre ville, ouvertes sans RDV si tu viens cordialement et sans préjugés.

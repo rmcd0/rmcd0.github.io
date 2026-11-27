@@ -32,11 +32,11 @@ The footer shows the weight of each page, measured in your browser, and its COâ‚
 
 ## Licences
 
-Code: [GNU GPL v3 or later](https://www.gnu.org/licenses/gpl-3.0.html). Texts and images: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), unless stated otherwise (press drawings and third-party images belong to their authors). Reuse, quote, translate, republish: just credit rmcd and link to the original.
+Code: [GNU GPL v3 or later](https://www.gnu.org/licenses/gpl-3.0.html). Texts and images: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), unless stated otherwise (press drawings and third-party images belong to their authors). Reuse, quote, translate, republish: just credit me and link to the original.
 
 ## Inspirations
 
-[nikiv.dev](https://nikiv.dev/) for the structure, [Retro Garden](https://retro-garden-eleventy-theme.vercel.app/) for the night colours, [l0g.fr](https://l0g.fr/), [lea.verou.me](https://lea.verou.me/), [small-tech.org](https://small-tech.org/) and the whole IndieWeb: own your data, and above all, have fun.
+[nikiv.dev](https://nikiv.dev/) for the structure, [Retro Garden](https://retro-garden-eleventy-theme.vercel.app/) for the night colours, [Jeremy Fontana](https://jfontana.fr/) for the spirit and some [IndieWeb principles](https://indieweb.org/principles) overall: own your data, and above all, have fun.
 
 ## For the curious
 

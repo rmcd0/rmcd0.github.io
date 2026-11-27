@@ -1,7 +1,12 @@
 {
   "term": {
     "commands": {
-      "cv": "<b>rmcd</b> (Romain) · project manager, digital transformation and PMO\n15 years between business, IT and vendors: document management, processes, change\nHERMES · Scrum.org PSPO I · Prosci ADKAR · M-Files, xECM, Documentum\nIUCN, Roche, NNE, SpinetiX and 5 years running his own shop. Available, Geneva or Vaud.\n→ <a href=\"/hire/\">full background</a> · <a href=\"/#contact\">get in touch</a>"
+      "cv": "<b>rmcd</b> (Romain) · digital transformation and information management\n15 years between business, IT and vendors: systems management, processes, change\nIUCN, Roche, NNE, SpinetiX and 5 years running his own shop. Available, Geneva or Vaud.\n→ <a href=\"/hire/\">full background</a> · <a href=\"/#contact\">get in touch</a>"
     }
+  },
+  "notFound": {
+    "title": "Nothing is lost here",
+    "text": "This page isn’t here anymore. But around here nothing gets thrown away: it has most likely been recycled into something else. Have a look in the journal, or ask the search.",
+    "code": "rm: refused, recycled into something else"
   }
 }

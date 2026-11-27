@@ -77,7 +77,7 @@ The e-mail from `email` appears on the home page with a *Copy* button, and as th
 | `/robots.txt` | Points to the sitemap; blocks everything when `noindex: true` |
 | `/search.json` | Search index |
 | `/manifest.webmanifest` | Name and icon when the site is added to a phone's home screen |
-| `/404.html` | "Page not found", used by GitHub Pages, Netlify, and the Apache/nginx examples |
+| `/404.html` | "Page not found", used by GitHub Pages, Netlify, and the Apache/nginx examples. Its texts, including the last line of the terminal-style box ("the wind took it somewhere else"), are in the dictionary under `notFound`: change them in `content/i18n/<lang>.json` |
 
 ## Small web extras
 
